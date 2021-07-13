@@ -10,7 +10,7 @@
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/vue-remark": "^0.2.1",
-    "@sentry/tracing": "^6.8.0",
+    "@sentry/tracing": "^6.9.0",
     "@sentry/vue": "^6.8.0",
     "animate.css": "^4.1.0",
     "gridsome": "^0.7.0",
