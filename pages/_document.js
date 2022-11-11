@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import { Analytics } from '@vercel/analytics/react';
 
 export default function Document() {
   return (
@@ -31,14 +32,9 @@ export default function Document() {
           "flex flex-col bg-white text-black antialiased dark:bg-neutral-900 dark:text-white"
         }
       >
-        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <input type="phone" name="phone" />
-          <textarea name="message"></textarea>
-        </form>
         <Main />
         <NextScript />
+        <Analytics />
       </body>
     </Html>
   );

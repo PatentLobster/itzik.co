@@ -191,7 +191,7 @@ export function Contact() {
                       name="how-can-we-help"
                       required
                       aria-required
-                      maxlength="500"
+                      maxLength="500"
                       aria-describedby="how-can-we-help-description"
                       rows={4}
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 sm:text-sm"
