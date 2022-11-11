@@ -112,7 +112,9 @@ export class Navbar extends React.Component {
               <div className="overflow-hidden rounded-lg bg-white text-slate-900 shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="flex items-center justify-between px-5 pt-4">
                   <div>
-                    <Logo className={"text-4xl text-black"} />
+                    <a onClick={() => scroll.scrollToTop()}>
+                      <Logo className={"text-4xl text-black"} />
+                    </a>
                   </div>
                   <div className="-mr-3">
                     <Popover.Button className="text-warm-gray-400 hover:bg-warm-gray-100 inline-flex items-center justify-center rounded-md bg-white p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500">

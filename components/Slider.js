@@ -34,7 +34,11 @@ export function Slider() {
                   "m-4 flex h-12 w-12 justify-center rounded-full border border-slate-900/5 bg-white p-2 drop-shadow dark:border-slate-200/5"
                 }
               >
-                <Image src={logos[id]} alt={id} className={"m-auto h-8 w-8 "} />
+                <Image
+                  src={logos[id]}
+                  alt={id}
+                  className={"m-auto aspect-auto h-8	"}
+                />
               </div>
             ))}
           </Marquee>

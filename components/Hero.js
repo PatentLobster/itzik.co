@@ -51,7 +51,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
         >
-          <Social />
+          <Social imgClass={"mx-3 w-8"} />
         </motion.div>
         <motion.div
           animate={{ rotate: [0, 45, 0, -45, 0] }}

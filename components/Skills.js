@@ -51,7 +51,7 @@ export function Skills() {
 
   return (
     <>
-      <Element id={"skills"}>
+      <Element id={"skills"} className={"relative"}>
         <div
           className={
             "flex min-h-[75vh] flex-col border-y border-slate-900/10 bg-stone-50 bg-gradient-to-br from-black/10 text-center dark:border-slate-50/[0.06] dark:bg-slate-900/20  dark:from-white/5 sm:py-24 md:py-24"

@@ -94,7 +94,7 @@ export class TypeWriter extends React.Component {
 
   render() {
     return (
-      <h3 className={clsx(this.props.className, "text-xl text-pink-500")}>
+      <h2 className={clsx(this.props.className, "text-xl text-pink-500")}>
         <span className={"font-space"}>A</span>
         <span className={"font-space"}>{this.state.typeValue}</span>
         <span
@@ -105,7 +105,7 @@ export class TypeWriter extends React.Component {
         >
           &nbsp;
         </span>
-      </h3>
+      </h2>
     );
   }
 }

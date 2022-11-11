@@ -1,28 +1,53 @@
 import { motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useState } from "react";
+import { useConfetti } from "../hooks/useConfetti";
 
-import { forwardRef } from "react";
 const scroll = require("react-scroll");
 
 const Element = scroll.Element;
 export function Contact() {
+  const throwConfetti = useConfetti();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3_FORMS_KEY);
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      await throwConfetti();
+    }
+  }
+
   return (
     <>
       <Element className="relative" id={"contact"}>
         <div className="lg:absolute lg:inset-0">
           <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"></div>
         </div>
-        <div className="py-18 relative px-4 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 lg:py-24">
+        <div className=" relative px-4 py-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 ">
           <div className="lg:pr-8">
             <div className="mx-auto max-w-md sm:max-w-lg lg:mx-0">
-              <motion.h2
+              <motion.h3
                 className="text-3xl font-bold tracking-tight sm:text-4xl"
                 initial={{ opacity: 0, y: "-1em" }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
               >
                 Get in touch <span className={"mx-1"} /> 👉 👈
-              </motion.h2>
+              </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: "-1em" }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -34,10 +59,8 @@ export function Contact() {
                 <a href="mailto:contact@itzik.co">contact@itzik.co</a>
               </motion.p>
               <form
-                method="POST"
-                data-netlify="true"
+                onSubmit={handleSubmit}
                 name={"contact"}
-                data-netlify-honeypot="bot-field"
                 className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >
                 <input type="hidden" name="form-name" value="contact" />
@@ -56,6 +79,8 @@ export function Contact() {
                     <input
                       type="text"
                       name="first-name"
+                      required
+                      aria-required
                       id="first-name"
                       autoComplete="given-name"
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 sm:text-sm"
@@ -77,6 +102,8 @@ export function Contact() {
                     <input
                       type="text"
                       name="last-name"
+                      required
+                      aria-required
                       id="last-name"
                       autoComplete="family-name"
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 sm:text-sm"
@@ -100,6 +127,8 @@ export function Contact() {
                       id="email"
                       name="email"
                       type="email"
+                      required
+                      aria-required
                       autoComplete="email"
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 sm:text-sm"
                     />
@@ -160,6 +189,9 @@ export function Contact() {
                     <textarea
                       id="how-can-we-help"
                       name="how-can-we-help"
+                      required
+                      aria-required
+                      maxlength="500"
                       aria-describedby="how-can-we-help-description"
                       rows={4}
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 sm:text-sm"
