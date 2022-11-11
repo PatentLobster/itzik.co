@@ -32,7 +32,7 @@ export function Projects() {
           </motion.div>
           <div
             className={
-              "z-20 grid grid-cols-2 gap-8 px-24 py-8 max-md:grid-cols-1"
+              "z-20 grid grid-cols-2 gap-8 lg:px-24 max-md:px-4 md:px-8 py-8 max-md:grid-cols-1"
             }
           >
             <a href={"https://github.com/PatentLobster/Stinker"}>
