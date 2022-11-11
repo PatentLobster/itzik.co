@@ -19,13 +19,13 @@ export function Slider() {
 
   return (
     <>
-      <div className={"flex h-48 justify-center overflow-x-hidden"}>
+      <div className={"flex h-48 justify-center overflow-x-hidden max-w-full"}>
         <div className={"my-auto"}>
           <Marquee
             key={key}
             velocity={5}
             resetAfterTries={200}
-            className={"my-auto"}
+            className={"my-auto overflow-x-hidden"}
           >
             {times(logos.length, Number).map((id) => (
               <div
@@ -37,7 +37,7 @@ export function Slider() {
                 <Image
                   src={logos[id]}
                   alt={id}
-                  className={"m-auto aspect-auto h-8	"}
+                  className={"m-auto aspect-auto h-8"}
                 />
               </div>
             ))}
