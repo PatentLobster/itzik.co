@@ -1,5 +1,5 @@
-import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
-import _ from "lodash";
+import Marquee from "react-marquee-slider";
+import {times} from "lodash";
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import Image from "next/future/image";
@@ -27,7 +27,7 @@ export function Slider() {
             resetAfterTries={200}
             className={"my-auto"}
           >
-            {_.times(logos.length, Number).map((id) => (
+            {times(logos.length, Number).map((id) => (
               <div
                 key={id}
                 className={

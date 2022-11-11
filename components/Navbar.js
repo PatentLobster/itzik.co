@@ -3,7 +3,6 @@ import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
-import { motion } from "framer-motion";
 
 import Scroll from "react-scroll";
 
@@ -11,13 +10,10 @@ const Link = Scroll.Link;
 const scroll = Scroll.animateScroll;
 
 const navigation = [
-  // { name: "Home", to: "home" },
   { name: "Skills", to: "skills" },
   { name: "Projects", to: "projects" },
   { name: "Contact", to: "contact" },
 ];
-
-import clsx from "clsx";
 
 export class Navbar extends React.Component {
   constructor(props) {

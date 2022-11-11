@@ -1,5 +1,4 @@
-import { motion, useScroll } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useConfetti } from "../hooks/useConfetti";
 
 const scroll = require("react-scroll");
