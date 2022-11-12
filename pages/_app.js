@@ -1,11 +1,12 @@
 import React from "react";
-import { useRouter } from "next/router";
 import "../styles/globals.css";
 
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  return <Component {...pageProps} />;
+  return (<>
+    <Component {...pageProps} />
+    <Analytics /></>);
 }
 
 export default MyApp;
