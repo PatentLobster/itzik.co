@@ -1,10 +1,13 @@
-import React, { Fragment } from "react";
+import{ Fragment, Component } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 import Scroll from "react-scroll";
+
+// import Link from "react-scroll/modules/components/Link";
+// import {animateScroll as scroll} from "react-scroll/build/npm/modules/index";
 
 const Link = Scroll.Link;
 const scroll = Scroll.animateScroll;
@@ -15,7 +18,7 @@ const navigation = [
   { name: "Contact", to: "contact" },
 ];
 
-export class Navbar extends React.Component {
+export class Navbar extends Component {
   constructor(props) {
     super(props);
     this.scrollToTop = this.scrollToTop.bind(this);

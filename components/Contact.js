@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { useConfetti } from "../hooks/useConfetti";
 
-const scroll = require("react-scroll");
+import Element from "react-scroll/modules/components/Element";
 
-const Element = scroll.Element;
 export function Contact() {
   const throwConfetti = useConfetti();
 

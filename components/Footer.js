@@ -1,5 +1,8 @@
-import { Social } from "./Social";
-import { RandomEmoji } from "./RandomEmoji";
+import dynamic from "next/dynamic";
+
+const Social = dynamic(() => import("./Social" /* webpackChunkName: "Social" */), {ssr: false})
+const RandomEmoji = dynamic(() => import("./RandomEmoji" /* webpackChunkName: "RandomEmoji" */), {ssr: false})
+
 import { Logo } from "./Logo";
 
 export function Footer() {

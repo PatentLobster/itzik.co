@@ -1,27 +1,26 @@
 import React from "react";
 import clsx from "clsx";
-
+const typeArray = [
+  " Developer.",
+  " Hacker.",
+  " Maker.",
+  " Gamer.",
+  " Pilot.",
+  " Gopher.",
+  " Tech-Junkie.",
+  " Thinker.",
+  " Human.",
+  " Freelancer.",
+  " 1337.",
+  " Problem Solver.",
+  " Tux.",
+  " Lobster.",
+  "n Advisor.",
+]
 export class TypeWriter extends React.Component {
   state = {
     typeValue: "",
     typeStatus: false,
-    typeArray: [
-      " Developer.",
-      " Hacker.",
-      " Maker.",
-      " Gamer.",
-      " Pilot.",
-      " Gopher.",
-      " Tech-Junkie.",
-      " Thinker.",
-      " Human.",
-      " Freelancer.",
-      " 1337.",
-      " Problem Solver.",
-      " Tux.",
-      " Lobster.",
-      "n Advisor.",
-    ],
     typingSpeed: 150,
     erasingSpeed: 50,
     newTextDelay: 350,
@@ -35,7 +34,6 @@ export class TypeWriter extends React.Component {
 
   typeText = () => {
     const {
-      typeArray,
       charIndex,
       typeArrayIndex,
       typeStatus,
@@ -62,7 +60,6 @@ export class TypeWriter extends React.Component {
 
   eraseText = () => {
     const {
-      typeArray,
       charIndex,
       typeArrayIndex,
       typeStatus,

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Slider } from "./Slider";
-const scroll = require("react-scroll");
+const Slider = dynamic(() => import("../components/Slider" /* webpackChunkName: "Slider" */), {ssr: false})
 
-const Element = scroll.Element;
+import Element from "react-scroll/modules/components/Element";
+import dynamic from "next/dynamic";
+
 export function Skills() {
   const skills = [
     ["Hacking", "Securing"],

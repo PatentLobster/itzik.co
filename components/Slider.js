@@ -1,5 +1,5 @@
 import Marquee from "react-marquee-slider";
-import {times} from "lodash";
+import times from "lodash/times";
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import Image from "next/future/image";

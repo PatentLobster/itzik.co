@@ -2,10 +2,11 @@ import Image from "next/future/image";
 import lobster from "../images/lobster.svg";
 import { motion } from "framer-motion";
 import { TypeWriter } from "./TypeWriter";
-import { Social } from "./Social";
-const scroll = require("react-scroll");
+const Social = dynamic(() => import("./Social" /* webpackChunkName: "Social" */), {ssr: false})
 
-const Element = scroll.Element;
+import Element from "react-scroll/modules/components/Element";
+import dynamic from "next/dynamic";
+
 export function Hero() {
   const now = new Date().getFullYear();
   const age = now - 1997;

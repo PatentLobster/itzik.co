@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-const scroll = require("react-scroll");
+import Element from "react-scroll/modules/components/Element";
 
-const Element = scroll.Element;
+// const Element = scroll.Element;
 export function Projects() {
   return (
     <>
