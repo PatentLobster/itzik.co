@@ -3,6 +3,7 @@ import { useConfetti } from "../hooks/useConfetti";
 
 import Element from "react-scroll/modules/components/Element";
 
+
 export function Contact() {
   const throwConfetti = useConfetti();
 
@@ -35,7 +36,7 @@ export function Contact() {
         <div className="lg:absolute lg:inset-0">
           <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"></div>
         </div>
-        <div className=" relative px-4 py-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 ">
+        <div className=" relative px-4 py-24 my-20 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 ">
           <div className="lg:pr-8">
             <div className="mx-auto max-w-md sm:max-w-lg lg:mx-0">
               <motion.h3

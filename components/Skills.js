@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-const Slider = dynamic(() => import("../components/Slider" /* webpackChunkName: "Slider" */), {ssr: false})
+
 
 import Element from "react-scroll/modules/components/Element";
-import dynamic from "next/dynamic";
+
+import {SliderDynamic as Slider} from "./Slider.dynamic";
 
 export function Skills() {
   const skills = [
@@ -48,14 +49,14 @@ export function Skills() {
     if (!playing) {
     }
     return () => clearTimeout(intervalId);
-  }, [ctrls, index, playing]);
+  }, [ctrls, index, playing,skills]);
 
   return (
     <>
       <Element id={"skills"} className={"relative"}>
         <div
           className={
-            "flex min-h-[75vh] flex-col border-y border-slate-900/10 bg-stone-50 bg-gradient-to-br from-black/10 text-center dark:border-slate-50/[0.06] dark:bg-slate-900/20  dark:from-white/5 sm:py-24 md:py-24"
+            "flex min-h-[85vh] flex-col border-y border-slate-900/10 bg-stone-50 bg-gradient-to-br from-black/10 text-center dark:border-slate-50/[0.06] dark:bg-slate-900/20  dark:from-white/5 py-24"
           }
         >
           <motion.div

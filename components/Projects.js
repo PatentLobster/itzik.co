@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 import Element from "react-scroll/modules/components/Element";
-
-// const Element = scroll.Element;
 export function Projects() {
   return (
     <>
       <Element
         id={"projects"}
         className={
-          "relative flex min-h-[100vh] flex-col border-y border-slate-900/10 bg-white bg-gradient-to-br from-cyan-800/20 py-16 text-center dark:border-slate-50/[0.06]  dark:bg-purple-900/5 dark:from-white/5 sm:py-8 md:py-12 lg:py-24"
+          "relative flex min-h-[100vh] flex-col border-y border-slate-900/10 bg-white bg-gradient-to-br from-cyan-800/20 text-center dark:border-slate-50/[0.06]  dark:bg-purple-900/5 dark:from-white/5 py-24 mt-4"
         }
       >
         <div
@@ -26,7 +24,7 @@ export function Projects() {
         </div>
         <div className={"z-30"}>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-            <h3 className={"text-3xl font-bold tracking-tight sm:text-4xl"}>
+            <h3 className={"text-3xl font-bold tracking-tight sm:text-4xl py-8"}>
               My Projects
             </h3>
           </motion.div>

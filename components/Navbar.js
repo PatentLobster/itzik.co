@@ -5,10 +5,6 @@ import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 import Scroll from "react-scroll";
-
-// import Link from "react-scroll/modules/components/Link";
-// import {animateScroll as scroll} from "react-scroll/build/npm/modules/index";
-
 const Link = Scroll.Link;
 const scroll = Scroll.animateScroll;
 

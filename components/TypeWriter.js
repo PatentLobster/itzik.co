@@ -1,4 +1,4 @@
-import React from "react";
+import {Component} from "react";
 import clsx from "clsx";
 const typeArray = [
   " Developer.",
@@ -17,7 +17,7 @@ const typeArray = [
   " Lobster.",
   "n Advisor.",
 ]
-export class TypeWriter extends React.Component {
+export class TypeWriter extends Component {
   state = {
     typeValue: "",
     typeStatus: false,

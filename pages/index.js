@@ -1,13 +1,11 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 
 import { Hero } from "../components/Hero";
 import { Navbar } from "../components/Navbar";
 import { Projects } from "../components/Projects";
-import { Footer } from "../components/Footer";
-
-const Contact = dynamic(() => import("../components/Contact" /* webpackChunkName: "Contact" */), {ssr: false})
-const Skills = dynamic(() => import("../components/Skills" /* webpackChunkName: "Skills" */), {ssr: false})
+import { FooterDynamic as Footer } from "../components/Footer.dynamic";
+import { ContactDynamic as Contact } from "../components/Contact.dynamic";
+import { SkillsDynamic as Skills } from "../components/Skills.dynamic";
 
 export default function Home() {
   return (
