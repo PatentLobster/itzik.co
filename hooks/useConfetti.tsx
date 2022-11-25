@@ -1,20 +1,12 @@
 // @ts-ignore
 import JSConfetti from "js-confetti";
 import React from "react";
-import { useEventCallback } from "../hooks/useEventCallback";
+import { useEventCallback } from "./useEventCallback";
 
 type IAddConfettiConfig = Exclude<
   Parameters<JSConfetti["addConfetti"]>[0],
   undefined
 >;
-
-const confettiEmojiSet: Array<IAddConfettiConfig["emojis"]> = ["🥹"];
-
-// const randomConfettiColors = (): IAddConfettiConfig["confettiColors"] => {
-//   const N: number = confettiColorsSet.length;
-//   const idx = Math.min(N - 1, Math.floor(Math.random() * N));
-//   return confettiColorsSet[idx];
-// };
 
 export const useConfetti = (): (() => Promise<void>) => {
   const lockRef = React.useRef<boolean>(false);
@@ -33,13 +25,13 @@ export const useConfetti = (): (() => Promise<void>) => {
 
     const confetti = confettiRef.current;
 
-    const xs: boolean =
-      typeof window === "undefined" ? true : window.screen.width <= 900;
+    // const xs: boolean =
+    //   typeof window === "undefined" ? true : window.screen.width <= 900;
 
     const config: IAddConfettiConfig = {
       emojis: ["🎊", "🦞", "💵"],
-      confettiRadius: xs ? 4 : 8,
-      confettiNumber: xs ? 100 : 300,
+      confettiRadius: 5,
+      confettiNumber: 50,
     };
 
     lockRef.current = true;

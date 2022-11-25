@@ -7,6 +7,7 @@ import Element from "react-scroll/modules/components/Element";
 
 export function Hero() {
   const now = new Date().getFullYear();
+  const xs = typeof window === "undefined" ? true : window.screen.width >= 640;
   const age = now - 1997;
   const experience = age - 12;
   return (
@@ -52,24 +53,28 @@ export function Hero() {
         >
           <Social imgClass={"mx-3 w-8"} />
         </motion.div>
-        <motion.div
-          animate={{ rotate: [0, 45, 0, -45, 0] }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            duration: 60,
-            repeat: Infinity,
-          }}
-          className={
-            "invisible absolute bottom-10 right-5 md:visible lg:visible xl:visible 2xl:visible"
-          }
-        >
-          <Image
-            src={lobster}
-            alt={"Lobster"}
-            className="h-[35vh] w-auto opacity-25 dark:opacity-20 dark:invert"
-          />
-        </motion.div>
+        {xs ? (
+          <motion.div
+            animate={{ rotate: [0, 45, 0, -45, 0] }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              duration: 60,
+              repeat: Infinity,
+            }}
+            className={
+              "invisible absolute bottom-10 right-5 md:visible lg:visible xl:visible 2xl:visible"
+            }
+          >
+            <Image
+              src={lobster}
+              alt={"Lobster"}
+              className="h-[35vh] w-auto opacity-25 dark:opacity-20 dark:invert"
+            />
+          </motion.div>
+        ) : (
+          ""
+        )}
       </Element>
     </>
   );
