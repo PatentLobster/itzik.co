@@ -1,19 +1,19 @@
-/** @type {import('tailwindcss').Config} */
 const svgToDataUri = require("mini-svg-data-uri");
 
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
+    "./hooks/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      display: ["IBM Plex Mono", "Menlo", "monospace"],
-      body: ["IBM Plex Mono", "Menlo", "monospace"],
-    },
     extend: {
       keyframes: {
         blink: {
@@ -26,15 +26,10 @@ module.exports = {
       animation: {
         cursor: "blink 0.5s linear infinite",
       },
-      fontFamily: {
-        space: ["Space Mono", "monospace"],
-        gochi: ["Gochi Hand"],
-      },
     },
   },
-  darkMode: "class",
   plugins: [
-      require('@tailwindcss/forms'),
+    require("@tailwindcss/forms"),
     function ({ addVariant }) {
       addVariant(
         "supports-backdrop-blur",
