@@ -32,7 +32,7 @@ export function Contact() {
     <>
       <div className="relative -top-20" id={"contact"}>
         <div className="lg:absolute lg:inset-0">
-          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:-top-20 lg:visible xs:invisible sm:invisible md:invisible">
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:-top-20 invisible lg:visible">
             <Image
               src="/imgs/mail_lobster.png"
               fill
