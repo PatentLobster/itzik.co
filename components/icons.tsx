@@ -25,6 +25,10 @@ import {
   Twitter,
   User,
   X,
+  Box,
+  Youtube,
+  Facebook,
+  Linkedin,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -32,6 +36,10 @@ export type Icon = LucideIcon;
 
 export const Icons = {
   close: X,
+  box: Box,
+  facebook: Facebook,
+  linkedin: Linkedin,
+  youTube: Youtube,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
@@ -101,4 +109,22 @@ export const Icons = {
       <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
     </svg>
   ),
+  codeWars: (props: LucideProps) => (
+      <svg viewBox="0 0 256 256" {...props} >
+        <g>
+          <path  fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"} d="M132.404,226.306c58.114-3.551,101.538-54.579,96.106-108.885C223.207,64.4,173.755,25.96,121.386,29.518   c-53.091,3.606-96.815,49.633-94.368,103.041c4.318,83.454,84.984,95.212,88.478,94.081"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"} d="M128.833,124.943c15-28.667,44.333-22.667,56.5-6.833s5.417,46.161-9.333,47.833"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"}
+                d="M128.833,124.943c-16.344-27.922,5.503-50.27,25.379-52.185c24.462-2.356,43.287,20.435,37.658,32.591"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"}
+                d="M128.833,124.943c-31.316-0.927-41.01-27.526-32.757-48.776C105,53.193,138.5,51.943,147.302,63.85"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"}
+                d="M128.833,124.943c-17.967,26.907-49.903,21.476-60.315,4.437S63.75,84.193,83.902,81.6"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"}
+                d="M128.833,124.943c13.278,29.504-10.266,53.482-30.234,53.483c-18.849,0.001-39.349-14.233-33.087-35.314"/>
+          <path fill={"none"} stroke={"currentcolor"} strokeWidth={"10px"}
+                d="M128.833,124.943c32.054,4.395,43.132,34.492,32.36,51.305s-39.694,23.861-49.487,10.315"/>
+        </g>
+      </svg>
+  )
 };

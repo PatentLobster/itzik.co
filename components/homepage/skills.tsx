@@ -30,6 +30,7 @@ export function Skills() {
                 src="/imgs/l1.png"
                 alt="Deploy with Vercel"
                 fill
+                sizes="(max-width: 768px) 100vw"
                 className={"object-cover"}
               />
             </div>
@@ -46,6 +47,7 @@ export function Skills() {
                 src="/imgs/l4.png"
                 alt="Deploy with Vercel"
                 fill
+                sizes="(max-width: 768px) 100vw"
                 className={"object-cover"}
               />
             </div>
@@ -62,6 +64,7 @@ export function Skills() {
                 src="/imgs/l3.png"
                 alt="Deploy with Vercel"
                 fill
+                sizes="(max-width: 768px) 100vw"
                 className={"object-cover"}
               />
             </div>
@@ -78,6 +81,7 @@ export function Skills() {
                 src="/imgs/l5.png"
                 alt="Deploy with Vercel"
                 fill
+                sizes="(max-width: 768px) 100vw"
                 className={"object-cover"}
               />
             </div>
@@ -93,6 +97,7 @@ export function Skills() {
                 src="/imgs/l6.png"
                 alt="Deploy with Vercel"
                 fill
+                sizes="(max-width: 768px) 100vw"
                 className={"object-cover"}
               />
             </div>

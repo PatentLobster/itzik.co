@@ -12,7 +12,7 @@ export interface LogoProps
 
 
 // eslint-disable-next-line react/display-name
-const Logo = React.forwardRef<HTMLElement, LogoProps>(({ className, ...props }) =>{
+const Logo = ({ className, ...props }: LogoProps) =>{
   return (
       <>
         <h1 className={cn("font-extrabold", className, gochi.className)} {...props}>
@@ -20,6 +20,6 @@ const Logo = React.forwardRef<HTMLElement, LogoProps>(({ className, ...props }) 
         </h1>
       </>
   )
-})
+}
 
 export default Logo

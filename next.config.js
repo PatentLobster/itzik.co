@@ -3,6 +3,15 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/contact",
+        destination: "/#contact",
+        permanent: true,
+      },
+    ];
+  },
   experimental: {
     appDir: true,
   },

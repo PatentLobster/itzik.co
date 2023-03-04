@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { forwardRef as FC, HTMLAttributes, ReactNode } from "react";
+import {  HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
 import ReactMarkdown from "react-markdown";
@@ -13,7 +13,7 @@ export interface CardProps extends HTMLAttributes<HTMLElement> {
   large?: boolean;
 }
 
-const Card = FC(({ title, description, demo, large, className }: CardProps) => (
+const Card = ({ title, description, demo, large, className }: CardProps) => (
   <>
     <motion.div
       initial={{ opacity: 0, y: "-1em" }}
@@ -61,6 +61,6 @@ const Card = FC(({ title, description, demo, large, className }: CardProps) => (
       </div>
     </motion.div>
   </>
-));
+);
 
 export default Card;
