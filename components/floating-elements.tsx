@@ -17,7 +17,6 @@ export function FloatingElements() {
         transition={{
           duration: 1.2,
           delay: 1,
-          type: "spring",
           stiffness: 100,
           damping: 15,
           y: {
@@ -83,7 +82,6 @@ export function FloatingElements() {
         transition={{
           duration: 1.4,
           delay: 1.2,
-          type: "spring",
           stiffness: 120,
           damping: 12,
           y: {
@@ -118,7 +116,6 @@ export function FloatingElements() {
                 transition={{
                   duration: 0.5,
                   delay: 1.5 + i * 0.1,
-                  type: "spring",
                   stiffness: 200,
                 }}
               />
@@ -140,7 +137,6 @@ export function FloatingElements() {
         transition={{
           duration: 1.6,
           delay: 1.4,
-          type: "spring",
           stiffness: 80,
           damping: 20,
           x: {
@@ -210,7 +206,6 @@ export function FloatingElements() {
         transition={{
           duration: 1.8,
           delay: 1.6,
-          type: "spring",
           stiffness: 90,
           damping: 18,
           y: {
