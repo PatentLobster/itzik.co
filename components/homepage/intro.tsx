@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useTypingText } from "@/components/type-writer";
-import {Social} from "@/components/social";
+import { Social } from "@/components/social";
+import { FloatingElementsIntersection } from "@/components/floating-elements-intersection"
+import { ScrollIndicator } from "@/components/scroll-indicator"
 
 export function Intro () {
     const now = new Date().getFullYear();
@@ -29,7 +31,7 @@ export function Intro () {
     return (
           <div
         className={
-          "relative -top-20 flex h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100 py-24 dark:to-indigo-800/10 dark:from-stone-900 "
+          "relative -top-20 flex h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100 py-24 dark:to-indigo-800/10 dark:from-stone-900 justify-center "
         }
       >
         <div className={"mx-auto xs:w-full sm:w-1/2 lg:w-1/2"}>
@@ -62,7 +64,10 @@ export function Intro () {
                 </li>
             </ul>
           </div>
+                  <ScrollIndicator />
         </div>
+        <FloatingElementsIntersection />
+
       </div>
     )
 }

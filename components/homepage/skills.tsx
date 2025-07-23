@@ -8,6 +8,7 @@ export function Skills() {
       className={
         "relative -top-20 flex min-h-screen flex-col border-y border-slate-900/10  bg-gradient-to-br from-pink-50 via-white to-blue-50 text-center dark:border-slate-50/[0.06] dark:bg-slate-900/20  dark:from-white/5 py-24"
       }
+      id="Skills"
     >
       <motion.div
         initial={{ opacity: 0 }}
