@@ -1,6 +1,6 @@
 "use client"
 
-import {Gochi_Hand} from "@next/font/google";
+import {Gochi_Hand} from "next/font/google";
 import {cn} from "@/lib/utils";
 import * as React from "react";
 

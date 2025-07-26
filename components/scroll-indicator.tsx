@@ -34,7 +34,7 @@ export function ScrollIndicator({ targetId }: ScrollIndicatorProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.2 }}
-      className="absolute bottom-8 left-0 right-0 transform -translate-x-1/2 flex flex-col items-center space-y-2 z-10 cursor-pointer group"
+      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 z-10 cursor-pointer group"
       onClick={handleScrollDown}
       role="button"
       tabIndex={0}
@@ -91,7 +91,7 @@ export function ScrollIndicator({ targetId }: ScrollIndicatorProps) {
 
       {/* Scroll line indicator */}
       <motion.div
-        className="w-px h-12 bg-gradient-to-b from-slate-300 to-transparent dark:from-slate-600 dark:to-transparent group-hover:from-blue-400 dark:group-hover:from-blue-500 transition-colors duration-300"
+        className="w-px h-12 bg-linear-to-b from-slate-300 to-transparent dark:from-slate-600 dark:to-transparent group-hover:from-blue-400 dark:group-hover:from-blue-500 transition-colors duration-300"
         initial={{ height: 0 }}
         animate={{ height: 48 }}
         transition={{ duration: 0.8, delay: 1.5 }}

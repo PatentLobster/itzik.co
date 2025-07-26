@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Space_Mono } from "@next/font/google";
+import { Space_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 const FORWARD = "forward";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 
 import { Intro } from "@/components/homepage/intro";
 // import { Skills } from "@/components/homepage/skills";

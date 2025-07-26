@@ -29,7 +29,7 @@ const Card = ({ title, description, demo, large, className }: CardProps) => (
         {demo}
       </div>
       <div className="mx-auto mt-2 max-w-md text-center">
-        <h2 className="bg-gradient-to-br from-black to-stone-500 dark:from-white dark:to-slate-400 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">
+        <h2 className="bg-linear-to-br from-black to-stone-500 dark:from-white dark:to-slate-400 bg-clip-text font-display text-xl font-bold text-transparent md:text-3xl md:font-normal">
           <Balancer>{title}</Balancer>
         </h2>
         <div className="prose-sm mt-2 pb-4 leading-normal text-gray-500 md:prose">

@@ -36,6 +36,7 @@ export function Contact() {
             <Image
               src="/imgs/mail_lobster.png"
               fill
+              sizes="(max-width: 1024px) 0vw, 50vw"
               alt={"Mail Lobster"}
               className="h-56 w-full object-cover lg:absolute lg:h-full"
             />

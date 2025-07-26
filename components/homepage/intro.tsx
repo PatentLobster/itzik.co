@@ -30,16 +30,14 @@ export function Intro () {
     });
     return (
           <div
-        className={
-          "relative -top-20 flex h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100 py-24 dark:to-indigo-800/10 dark:from-stone-900 justify-center "
-        }
+        className="relative -top-20 flex h-screen w-full py-24 justify-center intro-bg"
       >
         <div className={"mx-auto xs:w-full sm:w-1/2 lg:w-1/2"}>
           <div className={"mt-8 text-center items-center justify-center "}>
             <motion.div
               animate={{ rotate: [5, -5, 5] }}
               transition={{
-                type: "linear",
+                // type: "linear",
                 duration: 3,
                 repeat: Infinity,
               }}

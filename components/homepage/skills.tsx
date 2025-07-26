@@ -5,9 +5,7 @@ import Image from "next/image";
 export function Skills() {
   return (
     <div
-      className={
-        "relative -top-20 flex min-h-screen flex-col border-y border-slate-900/10  bg-gradient-to-br from-pink-50 via-white to-blue-50 text-center dark:border-slate-50/[0.06] dark:bg-slate-900/20  dark:from-white/5 py-24"
-      }
+      className="relative -top-20 flex min-h-screen flex-col border-y border-slate-900/10 text-center dark:border-slate-50/6 py-24 skills-bg"
       id="Skills"
     >
       <motion.div
@@ -19,7 +17,7 @@ export function Skills() {
           My Skills
         </h3>
       </motion.div>
-      <div className="my-10 grid w-full max-w-screen-xl mx-auto animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 ">
+      <div className="my-10 grid w-full max-w-(--breakpoint-xl) mx-auto animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 ">
         <Card
           title={"Programming"}
           description={
@@ -31,7 +29,7 @@ export function Skills() {
                 src="/imgs/l1.png"
                 alt="Deploy with Vercel"
                 fill
-                sizes="(max-width: 768px) 100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={"object-cover"}
               />
             </div>
@@ -65,7 +63,7 @@ export function Skills() {
                 src="/imgs/l3.png"
                 alt="Deploy with Vercel"
                 fill
-                sizes="(max-width: 768px) 100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={"object-cover"}
               />
             </div>
@@ -82,7 +80,7 @@ export function Skills() {
                 src="/imgs/l5.png"
                 alt="Deploy with Vercel"
                 fill
-                sizes="(max-width: 768px) 100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={"object-cover"}
               />
             </div>
@@ -98,7 +96,7 @@ export function Skills() {
                 src="/imgs/l6.png"
                 alt="Deploy with Vercel"
                 fill
-                sizes="(max-width: 768px) 100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className={"object-cover"}
               />
             </div>
