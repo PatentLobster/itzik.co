@@ -63,25 +63,16 @@ const HardwareViz = dynamic(
 
 const expertiseAreas = [
   {
-    title: "Stock & Algo Trading",
-    description: "Algorithmic trading with real-time market analysis and automated execution systems.",
-    component: StockTradingViz,
+    title: "Hardware & Systems",
+    description: "System architecture, performance optimization, and hardware-software integration.",
+    component: HardwareViz,
   },
   {
     title: "DevOps & Infrastructure",
     description: "CI/CD pipelines, containerization, and cloud infrastructure automation at scale.",
     component: DevOpsViz,
   },
-  {
-    title: "SEO & Analytics",
-    description: "Search engine optimization, keyword research, and comprehensive web analytics.",
-    component: SEOViz,
-  },
-  {
-    title: "Electronics & Circuits",
-    description: "Circuit design, embedded systems, and hardware prototyping with microcontrollers.",
-    component: ElectronicsViz,
-  },
+
   {
     title: "Ethical Hacking",
     description: "Penetration testing, vulnerability assessment, and cybersecurity research.",
@@ -94,14 +85,26 @@ const expertiseAreas = [
   },
   {
     title: "Open Source",
-    description: "Contributing to open source projects and maintaining popular repositories.",
+    description: "Passionate about open source technologies and learning from community projects.",
     component: OpenSourceViz,
   },
   {
-    title: "Hardware & Systems",
-    description: "System architecture, performance optimization, and hardware-software integration.",
-    component: HardwareViz,
+    title: "Electronics & Circuits",
+    description: "Circuit design, embedded systems, and hardware prototyping with microcontrollers.",
+    component: ElectronicsViz,
   },
+
+  {
+    title: "Stock & Algo Trading",
+    description: "Algorithmic trading with real-time market analysis and automated execution systems.",
+    component: StockTradingViz,
+  },
+  {
+    title: "SEO & Analytics",
+    description: "Search engine optimization, keyword research, and comprehensive web analytics.",
+    component: SEOViz,
+  },
+
 ]
 
 // Memoized card component to prevent unnecessary re-renders
@@ -162,6 +165,8 @@ export function Hobbies() {
     triggerOnce: true,
   })
 
+  const now = new Date().getFullYear();
+
   return (
     <section
       ref={ref}
@@ -183,7 +188,7 @@ export function Hobbies() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">My Expertise & Hobbies</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               From algorithmic trading to hardware hacking, I love exploring the intersection of technology and
-              creativity. Here's a live view into my diverse skill set.
+              creativity. Here&apos;s a live view into my diverse skill set.
             </p>
           </m.div>
         </LazyMotionWrapper>
@@ -201,12 +206,15 @@ export function Hobbies() {
             transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
             className="mt-16 text-center"
           >
-            <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-2xl p-8 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">16 Years of Continuous Learning</h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Each visualization above represents real-time data and interactive elements that showcase my active
-                involvement in these fields. From trading algorithms that process market data to hardware monitors
-                showing system performance, these aren't just static displays—they're living representations of my work.
+            <div className="bg-gradient-to-r dark:bg-gradient-to-r from-blue-500/10 dark:from-white/10 to-purple-500/10 rounded-2xl p-8 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-4">{now - 1997 - 12} Years of Continuous Learning</h3>
+              <p className="text-black dark:text-muted-foreground max-w-2xl mx-auto">
+                Each visualization above represents <strong>simulated data and interactive elements</strong> that demonstrate my technical 
+                skills and knowledge in these fields. 
+                </p>
+                <p  className="text-black dark:text-muted-foreground max-w auto">
+                From mock trading algorithms that process simulated market data to 
+                virtual hardware monitors showing theoretical system performance, these are <strong>demonstrations</strong> that showcase my understanding of these domains.
               </p>
             </div>
           </m.div>

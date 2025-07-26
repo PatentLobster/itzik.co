@@ -239,7 +239,7 @@ export function FloatingElements() {
                 ease: "easeInOut",
               }}
             />
-            <span className="text-green-600 dark:text-green-400 font-mono text-xs">Arduino</span>
+            <span className="text-green-600 dark:text-green-400 font-mono text-xs">ESP32</span>
           </div>
           <motion.div
             className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent mb-1"

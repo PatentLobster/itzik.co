@@ -5,16 +5,14 @@ import { useEffect, useState } from "react"
 import { Code } from "lucide-react"
 
 export function CodingViz() {
-  const [linesOfCode, setLinesOfCode] = useState(1247)
+  const [linesOfCode, setLinesOfCode] = useState(1242847)
   const [commits, setCommits] = useState(89)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setLinesOfCode((prev) => prev + Math.floor(Math.random() * 10))
-      if (Math.random() > 0.7) {
-        setCommits((prev) => prev + 1)
-      }
-    }, 3000)
+      setLinesOfCode((prev) => prev + Math.floor(Math.random() * 25))
+      setCommits((prev) => prev + 1)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [])

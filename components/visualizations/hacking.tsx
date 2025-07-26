@@ -24,7 +24,7 @@ export function HackingViz() {
     }, 2000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [terminalCommands])
 
   return (
     <div className="relative h-52 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-lg p-4">
@@ -34,7 +34,7 @@ export function HackingViz() {
       </div>
 
       <div className="bg-black/80 rounded p-3 h-38 overflow-hidden font-mono text-xs">
-        <div className="text-green-400 mb-2">root@kali:~#</div>
+        <div className="text-green-400 mb-2">root@pwned:~#</div>
         {commands.map((cmd, index) => (
           <m.div
             key={index}

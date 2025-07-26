@@ -52,12 +52,18 @@ export default function Home() {
   return (
     <main className={cn("block", inter.className)}>
       <Intro />
-      <Skills />
+      <Suspense fallback={<SkeletonLoader height="800px" className="bg-muted/30" />}>
+        <Skills />
+      </Suspense>
       <Suspense fallback={<SkeletonLoader height="800px" className="bg-muted/30" />}>
         <Hobbies />
       </Suspense>
-      <Projects />
-      <Contact />
+      <Suspense fallback={<SkeletonLoader height="800px" className="bg-muted/30" />}>
+        <Projects />
+      </Suspense>
+      <Suspense fallback={<SkeletonLoader height="800px" className="bg-muted/30" />}>
+        <Contact />
+      </Suspense>
     </main>
   );
 }

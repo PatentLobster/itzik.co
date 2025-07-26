@@ -37,23 +37,35 @@ export function OpenSourceViz() {
           </div>
         </div>
 
-        <div className="bg-background/50 rounded p-3 ">
+        <div className="bg-background/50 rounded  py-2 px-3 ">
           <div className="text-2xl font-bold text-yellow-500">{stars}k</div>
           <div className="text-xs text-muted-foreground">GitHub Stars</div>
 
           {/* Repository languages */}
-          <div className="mt-2 space-y-1">
+          <div className="mt-2 space-y-1 grid grid-cols-2 gap-2">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="text-xs">TypeScript 45%</span>
+              <span className="text-xs">Go 25%</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+              <span className="text-xs">Rust 20%</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <span className="text-xs">TypeScript 18%</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-              <span className="text-xs">JavaScript 35%</span>
+              <span className="text-xs">Python 15%</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-xs">Python 20%</span>
+              <div className="w-2 h-2 bg-stone-600 rounded-full"></div>
+              <span className="text-xs">Bash 12%</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <span className="text-xs">HCL 10%</span>
             </div>
           </div>
         </div>

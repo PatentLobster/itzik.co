@@ -32,9 +32,9 @@ export function SEOViz() {
         <span className="font-mono text-sm">SEO Analytics</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-1 -py-1">
+      <div className="grid grid-cols-2 gap-3 -py-1">
         <m.div className="bg-background/50 rounded p-3" whileHover={{ scale: 1.05 }}>
-          <div className="text-s font-bold text-green-500">{metrics.organic}</div>
+          <div className="text-l font-bold text-green-500">{metrics.organic}</div>
           <div className="text-xs text-muted-foreground">Organic Traffic</div>
           <m.div
             className="w-full h-1 bg-muted rounded mt-2"
@@ -47,7 +47,7 @@ export function SEOViz() {
         </m.div>
 
         <m.div className="bg-background/50 rounded p-3" whileHover={{ scale: 1.05 }}>
-          <div className="text-s font-bold text-blue-500">{metrics.keywords}</div>
+          <div className="text-l font-bold text-blue-500">{metrics.keywords}</div>
           <div className="text-xs text-muted-foreground">Top 10 Keywords</div>
           <m.div
             className="w-full h-1 bg-muted rounded mt-2"
@@ -60,7 +60,7 @@ export function SEOViz() {
         </m.div>
 
         <m.div className="bg-background/50 rounded p-3" whileHover={{ scale: 1.05 }}>
-          <div className="text-s font-bold text-purple-500">{metrics.backlinks}</div>
+          <div className="text-l font-bold text-purple-500">{metrics.backlinks}</div>
           <div className="text-xs text-muted-foreground">Quality Backlinks</div>
           <m.div
             className="w-full h-1 bg-muted rounded mt-2"
@@ -73,7 +73,7 @@ export function SEOViz() {
         </m.div>
 
         <m.div className="bg-background/50 rounded p-3" whileHover={{ scale: 1.05 }}>
-          <div className="text-s font-bold text-orange-500">{metrics.ranking.toFixed(1)}</div>
+          <div className="text-l font-bold text-orange-500">{metrics.ranking.toFixed(1)}</div>
           <div className="text-xs text-muted-foreground">Avg. Position</div>
           <m.div
             className="w-full h-1 bg-muted rounded mt-2"
