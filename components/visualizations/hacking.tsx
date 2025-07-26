@@ -4,16 +4,17 @@ import { m } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Shield } from "lucide-react"
 
+const terminalCommands = [
+  "nmap -sS 192.168.1.0/24",
+  "sqlmap -u 'http://target.com' --dbs",
+  "hydra -l admin -P passwords.txt ssh://target",
+  "metasploit > use exploit/multi/handler",
+  "john --wordlist=rockyou.txt hashes.txt",
+  "aircrack-ng -w wordlist.cap capture.cap",
+]
+
 export function HackingViz() {
   const [commands, setCommands] = useState<string[]>([])
-  const terminalCommands = [
-    "nmap -sS 192.168.1.0/24",
-    "sqlmap -u 'http://target.com' --dbs",
-    "hydra -l admin -P passwords.txt ssh://target",
-    "metasploit > use exploit/multi/handler",
-    "john --wordlist=rockyou.txt hashes.txt",
-    "aircrack-ng -w wordlist.cap capture.cap",
-  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +25,7 @@ export function HackingViz() {
     }, 2000)
 
     return () => clearInterval(interval)
-  }, [terminalCommands])
+  }, [])
 
   return (
     <div className="relative h-52 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-lg p-4">

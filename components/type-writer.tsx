@@ -86,7 +86,6 @@ export const useTypingText = ({
       clearInterval(typingInterval.current);
     };
   }, [
-    currentWord,
     wordIndex,
     typingSpeed,
     erasingSpeed,

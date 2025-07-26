@@ -6,6 +6,32 @@ import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Analytics } from "@/components/analytics";
 import React from "react";
 import { motion } from "framer-motion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Itzik",
+  description:
+    "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
+  keywords: ["developer", "devops", "full-stack", "react", "next.js", "typescript", "node.js"],
+  authors: [{ name: "Itzik" }],
+  creator: "Itzik",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://itzik.co",
+    title: "Itzik",
+    description:
+      "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
+    siteName: "Itzik.co",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Itzik",
+    description:
+      "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
+  },
+    generator: 'v0.dev'
+}
 
 export default function RootLayout({
   children,

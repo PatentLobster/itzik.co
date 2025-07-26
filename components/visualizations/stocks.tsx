@@ -244,8 +244,8 @@ export function StockTradingViz() {
         intervalID = setInterval(() => {
           candleCount++
           
-          // Create new candle every 5 updates (simulating 5 price updates per 30-second candle)
-          const isNewCandle = candleCount % 5 === 1
+          // Create new candle every 3 updates (simulating 3 price updates per 9-second candle)
+          const isNewCandle = candleCount % 3 === 1
           
           if (isNewCandle) {
             // Occasionally create special patterns (5% chance)
@@ -385,7 +385,7 @@ export function StockTradingViz() {
             setVolatility(volatilityValue)
           }
           
-        }, 200) // Keep same update frequency for live feel
+        }, 3000) // Much slower update frequency for smoother, less chaotic experience
 
         return () => {
           if (intervalID) clearInterval(intervalID)
@@ -403,7 +403,7 @@ export function StockTradingViz() {
         cleanup.then((fn) => fn && fn())
       }
     }
-  }, [currentPrice, openPrice, trend, volume, priceChange, momentum, volatility])
+  }, [trend, volume, priceChange, momentum, volatility])
 
   return (
     <div className="relative h-48 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-lg p-4 overflow-hidden">
