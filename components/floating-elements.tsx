@@ -30,12 +30,12 @@ export function FloatingElements() {
             ease: "easeInOut",
           },
         }}
-        className="absolute top-32 left-10 w-80 h-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 p-6"
+        className="absolute top-[8rem] left-10 w-80 h-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 p-6"
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-mono text-sm font-semibold text-slate-700 dark:text-cyan-400">system@devops:~$</h3>
           <motion.div
-            className="w-3 h-3 bg-linear-to-r from-green-500 to-emerald-500 rounded-full"
+            className="w-3 h-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.8, 1, 0.8],
@@ -62,7 +62,7 @@ export function FloatingElements() {
           </div>
           <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1">
             <motion.div
-              className="bg-linear-to-r from-cyan-500 to-blue-500 h-1 rounded-full"
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 h-1 rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: "23%" }}
               transition={{ duration: 2, delay: 2 }}
@@ -101,7 +101,7 @@ export function FloatingElements() {
       >
         <div className="text-center">
           <div
-            className="text-3xl font-bold bg-linear-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent mb-2"
+            className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 dark:from-emerald-400 dark:to-green-400 bg-clip-text text-transparent mb-2"
           >
             98
           </div>
@@ -110,7 +110,7 @@ export function FloatingElements() {
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-2 h-8 bg-linear-to-t from-emerald-500 to-green-400 rounded-full"
+                className="w-2 h-8 bg-gradient-to-t from-emerald-500 to-green-400 rounded-full"
                 initial={{ height: 0 }}
                 animate={{ height: "2rem" }}
                 transition={{
@@ -227,7 +227,7 @@ export function FloatingElements() {
             delay: 2,
           },
         }}
-        className="absolute bottom-20 right-12 w-60 h-36 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-blue-500/30 p-6"
+        className="absolute bottom-28 right-12 w-60 h-36 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-blue-500/30 p-6"
       >
         <div className="text-center">
           <div className="flex items-center justify-center mb-2">
@@ -242,7 +242,7 @@ export function FloatingElements() {
             <span className="text-green-600 dark:text-green-400 font-mono text-xs">Arduino</span>
           </div>
           <motion.div
-            className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent mb-1"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent mb-1"
             transition={{
               duration: 4,
               repeat: Number.POSITIVE_INFINITY,

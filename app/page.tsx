@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic"
+import { Suspense } from "react";
+import { SkeletonLoader } from "@/components/optimized/skeleton-loader";
 
 
 const Skills = dynamic(
@@ -36,6 +38,13 @@ const Contact = dynamic(
     loading: () => null, // No loading state needed
   },
 )
+const Hobbies = dynamic(
+  () => import("@/components/homepage/hobbies").then((mod) => ({ default: mod.Hobbies })),
+  {
+    ssr: false, // Don't render on server
+    loading: () => null, // No loading state needed
+  },
+)
 
 
 export default function Home() {
@@ -44,6 +53,9 @@ export default function Home() {
     <main className={cn("block", inter.className)}>
       <Intro />
       <Skills />
+      <Suspense fallback={<SkeletonLoader height="800px" className="bg-muted/30" />}>
+        <Hobbies />
+      </Suspense>
       <Projects />
       <Contact />
     </main>

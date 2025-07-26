@@ -13,7 +13,7 @@ export function Projects() {
       <div
         id={"projects"}
         className={
-          "relative -top-20 flex min-h-screen flex-col border-y border-slate-900/10 bg-white bg-linear-to-br from-cyan-800/20 text-center dark:border-slate-50/6  dark:bg-purple-900/5 dark:from-white/5 py-24"
+          "relative  -top-20 flex min-h-[100vh] flex-col border-y border-slate-900/10 bg-white bg-gradient-to-br from-cyan-800/20 text-center dark:border-slate-50/[0.06]  dark:bg-purple-900/5 dark:from-white/5 py-24"
         }
       >
         <div
@@ -22,7 +22,7 @@ export function Projects() {
           }
         >
           <div
-            className="absolute inset-0 z-10 bg-position-[bottom_1px_center] bg-grid-slate-900/[0.04] dark:border-b dark:border-slate-100/5 dark:bg-bottom dark:bg-grid-slate-100"
+            className="absolute inset-0 z-10 bg-[bottom_1px_center] bg-grid-slate-900/[0.04] dark:border-b dark:border-slate-100/5 dark:bg-bottom dark:bg-grid-slate-100/5"
             style={{
               maskImage: "linear-gradient(to bottom, transparent, black)",
               WebkitMaskImage: "linear-gradient(to bottom, transparent, black)",

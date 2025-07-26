@@ -1,108 +1,183 @@
-import Card from "@/components/card";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, m} from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { useMemo } from "react";
+
+const skillsList = [
+  'AI',
+  'Android',
+  'Arduino',
+  'Artificial Intelligence',
+  'AWS',
+  'Azure',
+  'Blockchain',
+  'C',
+  'C#',
+  'C++',
+  'CI/CD',
+  'Cloud Computing',
+  'Computer Vision',
+  'Confluence',
+  'Deep Learning',
+  'DevOps',
+  'Docker',
+  'Electronics',
+  'Elasticsearch',
+  'Express',
+  'FPV Drones',
+  'Flutter',
+  'GCP',
+  'Git',
+  'GitHub',
+  'GitLab',
+  'Go',
+  'GraphQL',
+  'Hacking',
+  'iOS',
+  'Java',
+  'JavaScript',
+  'Jenkins',
+  'Jira',
+  'Kotlin',
+  'Kubernetes',
+  'Linux',
+  'MacOS',
+  'Machine Learning',
+  'MongoDB',
+  'MySQL',
+  'Natural Language Processing',
+  'Networking',
+  'Next.js',
+  'NoSQL',
+  'Node.js',
+  'PHP',
+  'PostgreSQL',
+  'Python',
+  'Raspberry Pi',
+  'React',
+  'Redis',
+  'Ruby',
+  'SQL',
+  'SQLite',
+  'Security',
+  'Swift',
+  'System Administration',
+  'Terraform',
+  'TypeScript',
+  'Windows',
+  'Web Development',
+  'Web3',
+  'WebAssembly',
+  'Webpack',
+  'WebGL',
+  'WebRTC',
+  'WebSockets',
+  'GRPC',
+  'REST',
+  'Rust',
+  'Solidity',
+  'Tailwind CSS',
+  'Three.js',
+  'Vue.js',
+  'Vim',
+  'Tauri',
+  'Electron',
+  'Flask',
+  'FastAPI',
+  'Fastify',
+  'Cloudflare',
+  'Laravel',
+  'Sass',
+  'Svelte',
+  'Gatsby',
+  'Nuxt.js',
+  'Webpack',
+]
 
 export function Skills() {
+  // Shuffle the skills array randomly and memoize it
+  const shuffledSkills = useMemo(() => {
+    const shuffled = [...skillsList].sort(() => Math.random() - 0.5);
+    // Create multiple copies for seamless infinite scrolling
+    return [...shuffled, ...shuffled, ...shuffled];
+  }, []);
+
+  const reversedSkills = useMemo(() => {
+    const reversed = [...shuffledSkills].reverse();
+    return [...reversed, ...reversed, ...reversed];
+  }, [shuffledSkills]);
+
   return (
-    <div
-      className="relative -top-20 flex min-h-screen flex-col border-y border-slate-900/10 text-center dark:border-slate-50/6 py-24 skills-bg"
-      id="Skills"
+    <section
+      id="skills"
+      className="section-snap py-20 bg-muted/30 relative overflow-hidden min-h-screen flex items-center"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.25 }}
-      >
-        <h3 className={"pt-8 text-3xl font-bold tracking-tight sm:text-4xl"}>
-          My Skills
-        </h3>
-      </motion.div>
-      <div className="my-10 grid w-full max-w-(--breakpoint-xl) mx-auto animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 ">
-        <Card
-          title={"Programming"}
-          description={
-            "I like to code things from scratch and enjoy bringing ideas to life."
-          }
-          demo={
-            <div className={"max-h-24"}>
-              <Image
-                src="/imgs/l1.png"
-                alt="Deploy with Vercel"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className={"object-cover"}
-              />
-            </div>
-          }
-        />
-        <Card
-          title={"Security"}
-          description={
-            "I love hacking new systems and to find security vulnerabilities and securing them afterwards."
-          }
-          demo={
-            <div className={"max-h-24"}>
-              <Image
-                src="/imgs/l4.png"
-                alt="Deploy with Vercel"
-                fill
-                sizes="(max-width: 768px) 100vw"
-                className={"object-cover"}
-              />
-            </div>
-          }
-        />
-        <Card
-          title={"Devops"}
-          description={
-            "Automating all the stuff & Improving developer workflow"
-          }
-          demo={
-            <div className={"max-h-24"}>
-              <Image
-                src="/imgs/l3.png"
-                alt="Deploy with Vercel"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className={"object-cover"}
-              />
-            </div>
-          }
-        />
-        <Card
-          title={"Electronics"}
-          description={
-            "I'm an electronics hobbyist, I love building devices of all kinds and to learn how stuff work in order to make it work better or to add additional functionalities."
-          }
-          demo={
-            <div className={"max-h-24"}>
-              <Image
-                src="/imgs/l5.png"
-                alt="Deploy with Vercel"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className={"object-cover"}
-              />
-            </div>
-          }
-          large
-        />
-        <Card
-          title={"Drones"}
-          description={"Hobbyist FPV drone builder & pilot"}
-          demo={
-            <div className={"max-h-24"}>
-              <Image
-                src="/imgs/l6.png"
-                alt="Deploy with Vercel"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className={"object-cover"}
-              />
-            </div>
-          }
-        />
+      {/* Full width container */}
+      <div className="w-full">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            I work with modern technologies to build scalable and performant applications.
+          </p>
+        </div>
+
+        {/* First infinite scrolling row */}
+        <div className="relative overflow-hidden w-full">
+          <motion.div
+            className="flex gap-4 w-max"
+            style={{
+              animation: 'scroll-left 900s linear infinite',
+            }}
+            animate={{
+              x: [0, '-33.333%'],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 700,
+                ease: "linear",
+              },
+            }}
+          >
+            {shuffledSkills.reverse().map((skill, index) => (
+              <Badge
+                key={`${skill}-${index}`}
+                variant="secondary"
+                className="text-sm px-4 py-2 bg-gradient-to-r from-muted to-muted/50 hover:from-primary/10 hover:to-primary/5 transition-all duration-[700ms] cursor-pointer flex-shrink-0 whitespace-nowrap"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </motion.div>
+        </div>
+        {/* Third row for more visual interest */}
+        <div className="relative overflow-hidden w-full mt-4">
+          <motion.div
+            className="flex gap-4 w-max"
+            animate={{
+              x: [0, '-33.333%'],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 900,
+                ease: "linear",
+              },
+            }}
+          >
+            {shuffledSkills.slice().sort(() => Math.random() - 0.5).map((skill, index) => (
+              <Badge
+                key={`third-${skill}-${index}`}
+                variant="secondary"
+                className="text-sm px-4 py-2 bg-gradient-to-r from-muted to-muted/50 hover:from-primary/10 hover:to-primary/5 transition-all duration-[900ms] cursor-pointer flex-shrink-0 whitespace-nowrap"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
