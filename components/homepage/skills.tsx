@@ -109,7 +109,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="section-snap py-20 bg-muted/30 relative overflow-hidden min-h-screen flex items-center"
+      className="section-snap py-20 bg-muted/30 relative overflow-hidden min-h-screen flex items-center border-t border-b border-slate-900/10 dark:border-slate-50/10"
     >
       {/* Full width container */}
       <div className="w-full">

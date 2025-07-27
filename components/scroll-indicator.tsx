@@ -34,7 +34,7 @@ export function ScrollIndicator({ targetId }: ScrollIndicatorProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.2 }}
-      className="absolute bottom-24  transform x-auto flex flex-col items-center space-y-2 z-10 cursor-pointer group"
+      className="absolute bottom-16  transform x-auto flex flex-col items-center space-y-2 z-10 cursor-pointer group"
       onClick={handleScrollDown}
       role="button"
       tabIndex={0}

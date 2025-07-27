@@ -3,6 +3,7 @@ import { useTypingText } from "@/components/type-writer";
 import { Social } from "@/components/social";
 import { FloatingElementsIntersection } from "@/components/floating-elements-intersection"
 import { ScrollIndicator } from "@/components/scroll-indicator"
+import { InteractiveBackground } from "@/components/interactive-background"
 
 export function Intro () {
     const now = new Date().getFullYear();
@@ -14,11 +15,13 @@ export function Intro () {
             " Gamer.",
             " Pilot.",
             " Gopher.",
+            " WebMaster.",
             " Tech-Junkie.",
             " Thinker.",
             " Human.",
             " Freelancer.",
             " 1337.",
+            " DevOps Engineer.",
             " Problem Solver.",
             " Tux.",
             " Lobster.",
@@ -37,7 +40,6 @@ export function Intro () {
             <motion.div
               animate={{ rotate: [5, -5, 5] }}
               transition={{
-                // type: "linear",
                 duration: 3,
                 repeat: Infinity,
               }}

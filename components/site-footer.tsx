@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer>
       <div
         className={
-          "flex flex-col w-full relative bottom-0 py-8 bg-white/5 mx-auto justify-center"
+          "flex flex-col w-full relative bottom-0 py-8 bg-white/5 mx-auto justify-center border-t border-b border-slate-900/10 dark:border-slate-50/10"
         }
       >
         <span className={"mx-auto"}>

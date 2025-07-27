@@ -5,15 +5,24 @@ import { SiteFooter } from "@/components/site-footer";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Analytics } from "@/components/analytics";
 import React from "react";
-import { motion } from "framer-motion";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Itzik",
   description:
     "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
-  keywords: ["developer", "devops", "full-stack", "react", "next.js", "typescript", "node.js"],
-  authors: [{ name: "Itzik" }],
+  keywords: [
+      "developer", "devops", "full-stack", "react", "next.js",
+      "typescript", "node.js", "Terraform", "AWS", "Azure", "GCP",
+      "Docker", "Kubernetes", "CI/CD", "DevOps", "Cloud", "Infrastructure",
+      "Cloud Native", "Cloud Computing", "Cloud Architecture", "Cloud Engineering",
+      "Cloud Development", "Cloud Operations", "Cloud Management", "Cloud Automation",
+      "Cloud Monitoring", "Cloud Logging", "Cloud Security", "Cloud Networking", "Cloud Storage",
+      "Cloud Database", "Cloud Migration", "Cloud Optimization", "Cloud Cost Optimization",
+      "Cloud Cost Management", "Cloud Cost Analysis", "FPV", "SSH", "kwad", "Raspberry Pi",
+      "Github", "GitLab", "AI", "10x", "1337", "Lobster", "PatentLobster"
+  ],
+  authors: [{ name: "Itzik" },{ name: "PatentLobster" }],
   creator: "Itzik",
   openGraph: {
     type: "website",
@@ -30,7 +39,6 @@ export const metadata: Metadata = {
     description:
       "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

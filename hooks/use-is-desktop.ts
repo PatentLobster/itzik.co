@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react"
 
-export function useIsDesktop() {
+export function useIsDesktop(width: number = 768) {
   const [isDesktop, setIsDesktop] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const checkIsDesktop = () => {
-      setIsDesktop(window.innerWidth >= 768) // md breakpoint
+      setIsDesktop(window.innerWidth >= width) // md breakpoint
       setIsLoaded(true)
     }
 

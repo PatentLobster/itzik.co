@@ -13,7 +13,7 @@ const FloatingElements = dynamic(
 )
 
 export function FloatingElementsIntersection() {
-  const { isDesktop, isLoaded } = useIsDesktop()
+  const { isDesktop, isLoaded } = useIsDesktop(1280)
 
   // Don't render anything until we know the screen size
   if (!isLoaded) return null

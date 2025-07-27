@@ -172,7 +172,6 @@ export function Hobbies() {
       ref={ref}
       className="py-20 px-4 bg-muted/30 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-100 py-24 dark:to-indigo-800/10 dark:from-stone-900 border-t border-b border-slate-900/10 dark:border-slate-50/10"
     >
-      {/* Simplified background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
       </div>
