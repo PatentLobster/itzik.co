@@ -3,7 +3,6 @@ import { useTypingText } from "@/components/type-writer";
 import { Social } from "@/components/social";
 import { FloatingElementsIntersection } from "@/components/floating-elements-intersection"
 import { ScrollIndicator } from "@/components/scroll-indicator"
-import { InteractiveBackground } from "@/components/interactive-background"
 
 export function Intro () {
     const now = new Date().getFullYear();
