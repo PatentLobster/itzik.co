@@ -55,7 +55,7 @@ export function SEOViz() {
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <div className="h-2 bg-blue-500 rounded" style={{ width: "60%" }} />
+            <div className="h-full bg-blue-500 rounded" style={{ width: "60%" }} />
           </m.div>
         </m.div>
 

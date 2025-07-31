@@ -84,7 +84,7 @@ export function Projects() {
                 </div>
               </motion.div>
             </a>
-            <a href={"https://github.com/PatentLobster/dotfiles"}>
+            <a href={"https://github.com/PatentLobster/daphar"}>
               <motion.div
                 initial={{ opacity: 0, y: "-1em" }}
                 whileInView={{ opacity: 1, y: 0 }}

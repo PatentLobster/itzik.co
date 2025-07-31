@@ -135,7 +135,7 @@ const ExpertiseCard = memo(({ area, index }: { area: (typeof expertiseAreas)[0];
           <Card className="rounded-lg text-card-foreground shadow-2xs h-full border-0 bg-gradient-to-br from-card/80 to-muted/40 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 ">
             <CardContent className="p-8">
               <div className="mb-4">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{area.title}</h3>
+                <h3 className="text-xl font-bold mb-2 transition-colors">{area.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{area.description}</p>
               </div>
 
@@ -213,7 +213,7 @@ export function Hobbies() {
                 </p>
                 <p  className="text-black dark:text-muted-foreground max-w auto">
                 From mock trading algorithms that process simulated market data to 
-                virtual hardware monitors showing theoretical system performance, these are <strong>demonstrations</strong> that showcase my understanding of these domains.
+                virtual hardware monitors showing theoretical system performance, these <strong>demonstrations</strong> showcase my understanding of these domains.
               </p>
             </div>
           </m.div>

@@ -25,7 +25,7 @@ const Card = ({ title, description, demo, large, className }: CardProps) => (
         className
       )}
     >
-      <div className="flex h-48  relative items-center justify-center">
+      <div className="flex h-52  relative items-center justify-center">
         {demo}
       </div>
       <div className="mx-auto mt-2 max-w-md text-center">

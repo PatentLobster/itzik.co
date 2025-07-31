@@ -30,7 +30,7 @@ export function FloatingElements() {
             ease: "easeInOut",
           },
         }}
-        className="absolute top-[8rem] left-10 w-80 h-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 p-6"
+        className="absolute top-[8rem] left-10 w-80 h-52 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 p-6"
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-mono text-sm font-semibold text-slate-700 dark:text-cyan-400">system@devops:~$</h3>
