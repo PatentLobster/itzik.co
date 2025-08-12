@@ -1,12 +1,15 @@
 import "./globals.css";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { Analytics } from "@/components/analytics";
 import React from "react";
 import type { Metadata } from "next";
+
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleTagManager } from '@next/third-parties/google'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Itzik",
@@ -66,6 +69,7 @@ export default function RootLayout({
             <TailwindIndicator />
           </ThemeProvider>
           <Analytics />
+          <SpeedInsights />
           <GoogleTagManager gtmId="GTM-WSSDZ2SB" />
         </body>
       </html>
