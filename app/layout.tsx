@@ -6,6 +6,7 @@ import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Analytics } from "@/components/analytics";
 import React from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Itzik",
@@ -65,6 +66,7 @@ export default function RootLayout({
             <TailwindIndicator />
           </ThemeProvider>
           <Analytics />
+          <GoogleTagManager gtmId="GTM-WSSDZ2SB" />
         </body>
       </html>
     </>

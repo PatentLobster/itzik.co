@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.4.6",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@sentry/nextjs": "^9.42.0",
     "@types/node": "18.19.122",
