@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-
+import FrontendObservability from "@/components/frontend-observability"
 export const metadata: Metadata = {
   title: "Itzik",
   description:
@@ -71,6 +71,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <GoogleTagManager gtmId="GTM-WSSDZ2SB" />
+          <FrontendObservability />
         </body>
       </html>
     </>
