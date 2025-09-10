@@ -45,7 +45,6 @@ export function Skills() {
           description={item.description}
           header={item.header}
           className={item.className}
-          icon={item.icon}
         />
       ))}
     </BentoGrid>
