@@ -2,9 +2,8 @@
 
 import type React from "react"
 
-import { Inter } from "next/font/google"
+import { Figtree, Doto } from "next/font/google"
 import { cn } from "@/lib/utils"
-import { Doto } from "next/font/google"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,7 +13,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { useConfetti } from "@/hooks/use-confetti";
 
-const inter = Inter({ subsets: ["latin"] })
+const figtree = Figtree({ subsets: ["latin"] })
 const doto = Doto({ subsets: ["latin"], display: "swap", weight: ["700"] })
 
 export default function Contact() {
@@ -68,12 +67,12 @@ export default function Contact() {
     <>
 
         {/* Header Section */}
-        <div className="space-y-2 relative">
+        <div className={cn("space-y-2 relative", figtree.className)}>
           <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
             [HEADER]
           </div>
           <h1 className="text-4xl font-bold tracking-wider">Let&apos;s Connect</h1>
-          <h2 className={cn("text-xl font-bold text-muted-foreground", doto.className)}>DROP ME A LINE</h2>
+          <h2 className={cn("text-xl font-bold text-foreground", doto.className)}>DROP ME A LINE</h2>
         </div>
 
         {/* Introduction */}
