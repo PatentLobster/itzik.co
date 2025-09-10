@@ -68,7 +68,7 @@ export default function RootLayout({
 
             <div className={cn("flex flex-col", figtree.className)}>
 
-              <div className={"w-full "}>
+              <div className={"w-full sm:px-8 md:px-0"}>
               <main className={cn("block  mt-16")}>
                 <div className="max-w-2xl mx-auto space-y-8">
                   {children}
