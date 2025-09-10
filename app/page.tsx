@@ -48,7 +48,7 @@ export default function Home() {
           </div>
           <div className="flex-1 space-y-4 text-sm leading-relaxed">
             <p>
-              I've been passionate about code since childhood, building my first HTML website{" "}
+              I&apos;ve been passionate about code since childhood, building my first HTML website{" "}
               <span className="font-semibold">at age 9</span> and launching my first{" "}
               <span className="font-semibold">business at 16</span>.
             </p>
@@ -58,7 +58,7 @@ export default function Home() {
               <span className="font-semibold">scalable systems</span> and infrastructure.
             </p>
             <p>
-              When I'm not coding, you'll find me exploring music, tinkering with electronics, piloting FPV
+              When I&apos;m not coding, you&apos;ll find me exploring music, tinkering with electronics, piloting FPV
               drones, or planning my next road trip adventure.
             </p>
           </div>

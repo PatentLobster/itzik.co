@@ -72,7 +72,7 @@ export default function Contact() {
           <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
             [HEADER]
           </div>
-          <h1 className="text-4xl font-bold tracking-wider">Let's Connect</h1>
+          <h1 className="text-4xl font-bold tracking-wider">Let&apos;s Connect</h1>
           <h2 className={cn("text-xl font-bold text-muted-foreground", doto.className)}>DROP ME A LINE</h2>
         </div>
 
@@ -83,7 +83,7 @@ export default function Contact() {
           </div>
           <p className="text-sm leading-relaxed">
             Got an interesting project in mind? Want to collaborate on something cool? Or just want to chat about code,
-            drones, or the latest tech trends? I'd love to hear from you.
+            drones, or the latest tech trends? I&apos;d love to hear from you.
           </p>
         </div>
 
@@ -184,7 +184,7 @@ export default function Contact() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleInputChange}
-                placeholder="What's this about?"
+                placeholder="What&apos;s this about?"
                 required
               />
             </div>
