@@ -8,7 +8,10 @@ interface SiteConfig {
       linkedin: string,
       codewars: string,
       youtube: string,
-      hackthebox: string
+      hackthebox: string,
+      steam: string,
+      discord: string,
+      instagram: string
   }
 }
 
@@ -23,6 +26,9 @@ export const siteConfig: SiteConfig = {
       linkedin: "https://www.linkedin.com/in/itzikmusli/",
       codewars: "https://www.codewars.com/users/PatentLobster",
       youtube: "https://youtube.com/@kwad-io",
-      hackthebox: "https://www.hackthebox.eu/home/users/profile/127846"
+      hackthebox: "https://www.hackthebox.eu/home/users/profile/127846",
+      steam: "https://steamcommunity.com/id/patentlobster/",
+      discord: "https://discord.com/users/244233172970110979",
+      instagram: "https://www.instagram.com/patentlobster"
   },
 }

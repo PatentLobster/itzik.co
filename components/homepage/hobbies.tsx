@@ -170,7 +170,7 @@ export function Hobbies() {
   return (
     <section
       ref={ref}
-      className="py-20 px-4 bg-muted/30 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-100 py-24 dark:to-indigo-800/10 dark:from-stone-900 border-t border-b border-slate-900/10 dark:border-slate-50/10"
+      className="relative overflow-hidden"
     >
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
@@ -184,15 +184,14 @@ export function Hobbies() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">My Expertise & Hobbies</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-l text-muted-foreground max-w-3xl mx-auto">
               From algorithmic trading to hardware hacking, I love exploring the intersection of technology and
               creativity. Here&apos;s a live view into my diverse skill set.
             </p>
           </m.div>
         </LazyMotionWrapper>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 auto-rows-max py-16   gap-4">
+        <div className="grid md:grid-cols-1 auto-rows-max  gap-8">
           {expertiseAreas.map((area, index) => (
             <ExpertiseCard key={area.title} area={area} index={index} />
           ))}
@@ -206,7 +205,7 @@ export function Hobbies() {
             className="mt-16 text-center"
           >
             <div className="bg-gradient-to-r dark:bg-gradient-to-r from-blue-500/10 dark:from-white/10 to-purple-500/10 rounded-2xl p-8 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">{now - 1997 - 12} Years of Continuous Learning</h3>
+              <h3 className="text-xl font-bold mb-4">{now - 1997 - 12} Years of Continuous Learning</h3>
               <p className="text-black dark:text-muted-foreground max-w-2xl mx-auto">
                 Each visualization above represents <strong>simulated data and interactive elements</strong> that demonstrate my technical 
                 skills and knowledge in these fields. 

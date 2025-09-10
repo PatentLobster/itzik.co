@@ -1,20 +1,25 @@
 import Logo from "@/components/logo";
-import {Social} from "@/components/social";
+import { Separator } from "./ui/separator";
+import Link from "next/link";
+
 
 export function SiteFooter() {
+  const now = new Date().getFullYear();
   return (
-    <footer>
-      <div
-        className={
-          "flex flex-col w-full relative bottom-0 py-8 bg-white/5 mx-auto justify-center border-t border-b border-slate-900/10 dark:border-slate-50/10"
-        }
-      >
-        <span className={"mx-auto"}>
-          Made with ☘️, By <Logo className={"inline-block text-2xl"} />
-        </span>
-          <div className={"py-2 mx-auto"}>
-              <Social />
-          </div>
+    <footer >
+      <div className="space-y-2 relative py-8">
+        <div className="absolute -left-16 top-8 text-xs text-muted-foreground/40 font-mono hidden lg:block">
+          [FOOTER]
+        </div>
+        <Separator />
+        <div className="text-center">
+          <p className="text-xs text-muted-foreground">
+                Made with ☘️, By <Logo className={"inline-block px-1 pt-0.5 my-auto text-2xl"} /> 
+          </p>
+          <p className="text-xs text-muted-foreground">
+              &copy; 2017-{now}
+          </p>
+        </div>
       </div>
     </footer>
   );

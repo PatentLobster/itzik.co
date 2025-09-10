@@ -1,32 +1,36 @@
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
+import { Navbar } from "@/components/navbar";
 import { SiteFooter } from "@/components/site-footer";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import React from "react";
 import type { Metadata } from "next";
 
+import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FrontendObservability from "@/components/frontend-observability"
+import { Figtree } from "next/font/google";
+const figtree = Figtree({ subsets: ['latin'], display: "swap", weight: ['300'] })
+
 export const metadata: Metadata = {
   title: "Itzik",
   description:
     "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
   keywords: [
-      "developer", "devops", "full-stack", "react", "next.js",
-      "typescript", "node.js", "Terraform", "AWS", "Azure", "GCP",
-      "Docker", "Kubernetes", "CI/CD", "DevOps", "Cloud", "Infrastructure",
-      "Cloud Native", "Cloud Computing", "Cloud Architecture", "Cloud Engineering",
-      "Cloud Development", "Cloud Operations", "Cloud Management", "Cloud Automation",
-      "Cloud Monitoring", "Cloud Logging", "Cloud Security", "Cloud Networking", "Cloud Storage",
-      "Cloud Database", "Cloud Migration", "Cloud Optimization", "Cloud Cost Optimization",
-      "Cloud Cost Management", "Cloud Cost Analysis", "FPV", "SSH", "kwad", "Raspberry Pi",
-      "Github", "GitLab", "AI", "10x", "1337", "Lobster", "PatentLobster"
+    "developer", "devops", "full-stack", "react", "next.js",
+    "typescript", "node.js", "Terraform", "AWS", "Azure", "GCP",
+    "Docker", "Kubernetes", "CI/CD", "DevOps", "Cloud", "Infrastructure",
+    "Cloud Native", "Cloud Computing", "Cloud Architecture", "Cloud Engineering",
+    "Cloud Development", "Cloud Operations", "Cloud Management", "Cloud Automation",
+    "Cloud Monitoring", "Cloud Logging", "Cloud Security", "Cloud Networking", "Cloud Storage",
+    "Cloud Database", "Cloud Migration", "Cloud Optimization", "Cloud Cost Optimization",
+    "Cloud Cost Management", "Cloud Cost Analysis", "FPV", "SSH", "kwad", "Raspberry Pi",
+    "Github", "GitLab", "AI", "10x", "1337", "Lobster", "PatentLobster"
   ],
-  authors: [{ name: "Itzik" },{ name: "PatentLobster" }],
+  authors: [{ name: "Itzik" }, { name: "PatentLobster" }],
   creator: "Itzik",
   openGraph: {
     type: "website",
@@ -55,15 +59,26 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
-          className={
-            "min-h-screen bg-white font-sans text-slate-900 antialiased dark:bg-stone-900 dark:text-slate-50"
-          }
+          className={cn(
+            " bg-background text-slate-900 antialiased dark:text-slate-50",
+            figtree.className
+          )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="flex  min-h-screen flex-col">
-              <SiteHeader />
-              <div className={"w-full -mb-20"}>{children}</div>
-              <SiteFooter />
+
+            <div className={cn("flex flex-col", figtree.className)}>
+
+              <div className={"w-full "}>
+              <main className={cn("block  mt-16")}>
+                <div className="max-w-2xl mx-auto space-y-8">
+                  {children}
+                  <SiteFooter />
+                </div>
+              </main>
+              </div>
+              
+              <Navbar />
+
             </div>
 
             <TailwindIndicator />

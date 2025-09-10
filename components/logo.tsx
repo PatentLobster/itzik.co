@@ -1,10 +1,10 @@
 "use client"
 
-import {Gochi_Hand} from "next/font/google";
+
 import {cn} from "@/lib/utils";
 import * as React from "react";
 
-
+import {Gochi_Hand} from "next/font/google";
 const gochi = Gochi_Hand({subsets: ['latin'], display: "swap", weight: ['400']})
 
 export interface LogoProps
@@ -15,9 +15,9 @@ export interface LogoProps
 const Logo = ({ className, ...props }: LogoProps) =>{
   return (
       <>
-        <h1 className={cn("font-extrabold", className, gochi.className)} {...props}>
+        <span className={cn("font-extrabold", className, gochi.className)} {...props}>
           Itzik
-        </h1>
+        </span>
       </>
   )
 }

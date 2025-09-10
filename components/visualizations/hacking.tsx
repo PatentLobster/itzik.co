@@ -28,7 +28,7 @@ export function HackingViz() {
   }, [])
 
   return (
-    <div className="relative h-52 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-lg p-4">
+    <div className="relative h-52 bg-gradient-to-br from-red-500/10  rounded-t-lg to-pink-500/10 p-4">
       <div className="flex items-center gap-2 mb-4">
         <Shield className="w-5 h-5 text-red-500" />
         <span className="font-mono text-sm">Penetration Testing</span>
@@ -40,8 +40,7 @@ export function HackingViz() {
           <m.div
             key={index}
             className="text-green-300 mb-1"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 1, x: 10 }}
             transition={{ duration: 0.5 }}
           >
             <span className="text-red-400">$</span> {cmd}
@@ -50,7 +49,8 @@ export function HackingViz() {
         <m.div
           className="w-2 h-4 bg-green-400 inline-block pb-4"
           animate={{ opacity: [1, 0, 1] }}
-          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+          initial={{opacity: 1}}
+          transition={{ duration: 1,  repeat: Number.POSITIVE_INFINITY }}
         />
       </div>
     </div>

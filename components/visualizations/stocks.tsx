@@ -406,13 +406,13 @@ export function StockTradingViz() {
   }, [trend, volume, priceChange, momentum, volatility])
 
   return (
-    <div className="relative h-56 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-lg p-4 overflow-hidden">
+    <div className="relative h-52 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-t-lg  p-4 overflow-hidden">
       <div className="absolute top-4 left-4 flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-green-500" />
         <span className="font-mono text-sm">ALGO-TRADE</span>
       </div>
 
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 sm:visible md:hidden">
         <m.div
           className={`text-lg font-mono ${trend === "up" ? "text-green-500" : "text-red-500"}`}
           animate={{ scale: trend === "up" ? [1, 1.1, 1] : [1, 0.9, 1] }}
@@ -430,7 +430,7 @@ export function StockTradingViz() {
       />
 
       {/* Trading indicators */}
-      <div className="absolute bottom-2 left-4 flex gap-2">
+      <div className="absolute bottom-2 left-4 flex gap-2 sm:visible md:hidden">
         <Badge 
           variant="secondary" 
           className={`text-xs font-bold ${priceChange >= 0 ? 'text-green-400 bg-green-900/20 border-green-500/30' : 'text-red-400 bg-red-900/20 border-red-500/30'}`}
