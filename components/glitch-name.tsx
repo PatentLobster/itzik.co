@@ -107,7 +107,7 @@ export default function GlitchName({
                   {!shouldChange || !showHebrew() ? (
                     <motion.span
                       key={`${letter}-en-${index}`}
-                      className={cn("text-white absolute inset-0 flex items-center justify-center gochi", gochi.className)}
+                      className={cn(" absolute inset-0 flex items-center justify-center gochi", gochi.className)}
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2, delay: index * 0.05 }}
@@ -117,7 +117,7 @@ export default function GlitchName({
                   ) : (
                     <motion.span
                       key={`${hebrewLetter}-he-${index}`}
-                      className={cn("playpen text-white absolute inset-0 flex items-center justify-center", playpen.className)}
+                      className={cn("playpen  absolute inset-0 flex items-center justify-center", playpen.className)}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}

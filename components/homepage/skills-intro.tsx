@@ -55,10 +55,11 @@ const Skeleton = () => (
 );
 const items = [
   {
-    title: "DevOps & Infrastructure",
-    description: "CI/CD pipelines, containerization, and cloud infrastructure automation at scale.",
-    header: <DevOpsViz />,
-    className: "md:col-span-2 pb-2",
+    title: "Ethical Hacking",
+    description:
+      "Penetration testing, vulnerability assessment, and cybersecurity research.",
+    header: <HackingViz />,
+    className: "md:col-span-2",
   },
   {
     title: "Continuous Learning",
@@ -73,10 +74,10 @@ const items = [
     className: "md:col-span-1 ",
   },
   {
-    title: "Ethical Hacking",
-    description:
-      "Penetration testing, vulnerability assessment, and cybersecurity research.",
-    header: <HackingViz />,
-    className: "md:col-span-2",
+    title: "DevOps & Infrastructure",
+    description: "CI/CD pipelines, containerization, and cloud infrastructure automation at scale.",
+    header: <DevOpsViz />,
+    className: "md:col-span-2 pb-2",
   },
+
 ];

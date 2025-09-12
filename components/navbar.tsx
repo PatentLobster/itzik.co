@@ -27,7 +27,7 @@ export function Navbar() {
     <Dock
       disableMagnification
       direction="middle"
-      className="sticky z-50 bottom-8 backdrop-blur transition-colors  supports-backdrop-blur:bg-black/5  dark:border-slate-50/6 dark:text-white dark:supports-backdrop-blur:bg-white/5"
+      className="sticky z-50 bottom-8 backdrop-blur transition-colors border-slate-500/50  supports-backdrop-blur:bg-black/5  dark:border-slate-50/6 dark:text-white dark:supports-backdrop-blur:bg-white/5"
     >
           <GlitchName 
               englishText="Itzik"
@@ -37,7 +37,7 @@ export function Navbar() {
               fontSize="text-3xl px-2"
       />
       
-      <Separator orientation="vertical" className="h-full mr-2" />
+      <Separator orientation="vertical" className="h-full mr-2 opacity-20 dark:opacity-100" />
       {navbar.map((item) => {
         const isActive = pathname === item.href
 
@@ -72,7 +72,7 @@ export function Navbar() {
         )
       })}
 
-      <Separator orientation="vertical" className="h-full py-2 ml-2" />
+      <Separator orientation="vertical" className="h-full py-2 ml-2 opacity-20 dark:opacity-100" />
       <DockIcon>
         <AnimatedThemeToggler className="py-2" />
       </DockIcon>
