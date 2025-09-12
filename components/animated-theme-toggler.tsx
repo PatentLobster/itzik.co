@@ -2,7 +2,7 @@
 import * as React from "react";
 
 
-import { Moon, SunDim } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useState, useRef } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
@@ -13,8 +13,8 @@ type props = {
 };
 
 export const AnimatedThemeToggler = ({ className }: props) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const { setTheme, theme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+  const { setTheme, theme, resolvedTheme } = useTheme();
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const changeTheme = async () => {
@@ -32,7 +32,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
           
           default:
           case "system":
-            setTheme("dark")
+            resolvedTheme == "dark" ? setTheme("light") : setTheme("dark")
             break
         }
           
@@ -62,9 +62,22 @@ export const AnimatedThemeToggler = ({ className }: props) => {
       },
     );
   };
+
+    // useEffect only runs on the client, so now we can safely show the UI
+    React.useEffect(() => {
+      setMounted(true);
+    }, []);
+  
+  if (!mounted) {
+    return (
+      <button ref={buttonRef} onClick={changeTheme} className={cn("focus-none",className)}>
+        <Moon strokeWidth={0.8}/>
+      </button>
+    );
+  }
   return (
     <button ref={buttonRef} onClick={changeTheme} className={cn("focus-none",className)}>
-      {isDarkMode ? <SunDim strokeWidth={0.8} /> : <Moon strokeWidth={0.8}/>}
+      {theme == "light" ? <Sun strokeWidth={1.5} /> : <Moon strokeWidth={0.8}/>}
     </button>
   );
 };
