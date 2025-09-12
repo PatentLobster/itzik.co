@@ -3,7 +3,6 @@
 import Logo from "@/components/ui/logo"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 
-import { HomeIcon, Mail } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {Icons} from "@/components/ui/icons"
@@ -15,7 +14,7 @@ import dynamic from "next/dynamic"
 
 
 const GlitchName = dynamic(
-  () => import("@/components/ui/glitch-name").then((mod) => ({ default: mod.GlitchName })),
+  () => import("@/components/ui/glitch-name").then((mod) => ({ default: mod.default })),
   {
     ssr: false, // Don't render on server
     loading: () => <Logo className="text-3xl px-2" />, 

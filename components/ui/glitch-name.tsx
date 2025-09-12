@@ -28,7 +28,7 @@ interface GlitchNameProps {
   hebrewFont?: string
 }
 
-export function GlitchName({
+export default function GlitchName({
   englishText,
   hebrewText,
   changeIndices,
