@@ -12,24 +12,16 @@ import { Analytics } from "@vercel/analytics/next"
 import { GoogleTagManager } from '@next/third-parties/google'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FrontendObservability from "@/components/layout/frontend-observability"
-import { Figtree } from "next/font/google";
+import { Figtree, Doto } from "next/font/google";
+
+const doto    = Doto({ subsets: ['latin'], display: "swap", weight: ['700'] })
 const figtree = Figtree({ subsets: ['latin'], display: "swap", weight: ['300'] })
+import Image from 'next/image'
+
 
 export const metadata: Metadata = {
-  title: "Itzik",
-  description:
-    "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
-  keywords: [
-    "developer", "devops", "full-stack", "react", "next.js",
-    "typescript", "node.js", "Terraform", "AWS", "Azure", "GCP",
-    "Docker", "Kubernetes", "CI/CD", "DevOps", "Cloud", "Infrastructure",
-    "Cloud Native", "Cloud Computing", "Cloud Architecture", "Cloud Engineering",
-    "Cloud Development", "Cloud Operations", "Cloud Management", "Cloud Automation",
-    "Cloud Monitoring", "Cloud Logging", "Cloud Security", "Cloud Networking", "Cloud Storage",
-    "Cloud Database", "Cloud Migration", "Cloud Optimization", "Cloud Cost Optimization",
-    "Cloud Cost Management", "Cloud Cost Analysis", "FPV", "SSH", "kwad", "Raspberry Pi",
-    "Github", "GitLab", "AI", "10x", "1337", "Lobster", "PatentLobster"
-  ],
+  title: 'Not Found',
+  description: 'The page you are looking for does not exist.',
   authors: [{ name: "Itzik" }, { name: "PatentLobster" }],
   creator: "Itzik",
   openGraph: {
@@ -37,17 +29,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://itzik.co",
-    title: "Itzik",
+    title: "Itzik - Page not found",
     description:
-      "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
+      "404",
     siteName: "Itzik.co",
   },
   twitter: {
     images: "https://itzik.co/og.png",
     card: "summary_large_image",
-    title: "Itzik",
+    title: "Itzik - Page not found",
     description:
-      "I'm Itzik, a DevOps engineer with 16 years of experience building scalable applications and solving real-world problems.",
+      "404",
   },
 }
 
@@ -72,10 +64,36 @@ export default function RootLayout({
             
               <div className={"w-full sm:px-8 md:px-0"}>
               <main className={cn("block  mt-16")}>
-                <div className="max-w-2xl mx-auto min-h-screen space-y-8">
-                  {children}
-                  <SiteFooter />
+                <div className="max-w-2xl mx-auto min-h-[95vh] space-y-8">
+                <div className="space-y-2 relative">
+                  <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
+                    [HEADER]
+                  </div>
+                  <h1 className="text-4xl font-bold tracking-wider">404</h1>
+
+                  <h2 className={cn("text-xl font-bold", doto.className)}> PAGE NOT FOUND </h2>
                 </div>
+                  
+                <div className="flex justify-between items-start gap-8 relative">
+          <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
+            [DOGE]
+          </div>
+          <div className="flex-1 grid mt-5 justify-center space-y-4 text-sm leading-relaxed text-center">
+          <Image
+      src="/imgs/doge.png"
+      width={500}
+      height={500}
+      alt="Doge"
+      className=""
+    />
+          <p>
+            wow, such empty.
+          </p>
+          </div>
+        </div>
+                <SiteFooter />
+                </div>
+                
               </main>
               
               <Navbar />

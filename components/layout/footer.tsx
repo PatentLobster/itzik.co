@@ -1,5 +1,5 @@
-import Logo from "@/components/logo";
-import { Separator } from "./ui/separator";
+import Logo from "@/components/ui/logo";
+import { Separator } from "../ui/separator";
 import Link from "next/link";
 
 

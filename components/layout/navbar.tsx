@@ -1,21 +1,21 @@
 "use client"
 
-import Logo from "@/components/logo"
-import { AnimatedThemeToggler } from "@/components/animated-theme-toggler"
+import Logo from "@/components/ui/logo"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 import { HomeIcon, Mail } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import {Icons} from "@/components/icons"
+import {Icons} from "@/components/ui/icons"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { Dock, DockIcon } from "@/components/dock"
+import { Dock, DockIcon } from "@/components/ui/dock"
 // import GlitchName from "./glitch-name"
 import dynamic from "next/dynamic"
 
 
 const GlitchName = dynamic(
-  () => import("@/components/glitch-name").then((mod) => ({ default: mod.GlitchName })),
+  () => import("@/components/ui/glitch-name").then((mod) => ({ default: mod.GlitchName })),
   {
     ssr: false, // Don't render on server
     loading: () => <Logo className="text-3xl px-2" />, 
@@ -83,7 +83,7 @@ export function Navbar() {
 
       <Separator orientation="vertical" className="h-full py-2 ml-2 opacity-20 dark:opacity-100" />
       <DockIcon>
-        <AnimatedThemeToggler className="py-2" />
+        <ThemeToggle className="py-2" />
       </DockIcon>
     </Dock>
   )

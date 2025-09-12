@@ -14,6 +14,7 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
+    globalNotFound: true,
     optimizePackageImports: ['framer-motion', 'lucide-react', '@react-three/fiber', '@react-three/drei'],
   },
   sentry: {

@@ -12,7 +12,7 @@ type props = {
   className?: string;
 };
 
-export const AnimatedThemeToggler = ({ className }: props) => {
+export const ThemeToggle = ({ className }: props) => {
   const [mounted, setMounted] = React.useState(false);
   const { setTheme, theme, resolvedTheme } = useTheme();
 

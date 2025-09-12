@@ -1,23 +1,20 @@
 "use client";
 
-import { Inter } from "next/font/google";
-
-import { Intro } from "@/components/homepage/intro";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic"
-import { Suspense } from "react";
-import { SkeletonLoader } from "@/components/optimized/skeleton-loader";
+import { SkeletonLoader } from "@/components/ui/skeleton-loader";
+import { siteConfig } from "@/config/site"
+import Link from "next/link";
 
-import {Doto} from "next/font/google";
-const doto = Doto({subsets: ['latin'], display: "swap", weight: ['700']})
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Twitter, FileText, MessageSquare, Facebook, Instagram, Youtube } from "lucide-react"
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/ui/icons";
 import { Timeline } from "@/components/homepage/timeline";
 
+import {Doto} from "next/font/google";
+const doto = Doto({subsets: ['latin'], display: "swap", weight: ['700']})
 
 const Skills = dynamic(
   () => import("@/components/homepage/skills-intro").then((mod) => ({ default: mod.Skills })),
@@ -26,9 +23,7 @@ const Skills = dynamic(
     loading: () => <SkeletonLoader height="672px" className="bg-muted/30" />, // No loading state needed
   },
 )
-import { siteConfig } from "@/config/site"
-import Link from "next/link";
-import GlitchName from "@/components/glitch-name";
+
 
 
 export default function Home() {
