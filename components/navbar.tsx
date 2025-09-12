@@ -6,17 +6,17 @@ import { AnimatedThemeToggler } from "@/components/animated-theme-toggler"
 import { HomeIcon, Mail } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
+import {Icons} from "@/components/icons"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { Dock, DockIcon } from "@/components/dock"
 
 
 const navbar = [
-  { href: "/", icon: HomeIcon, label: "Home" },
+  { href: "/", icon: Icons.home, activeIcon: Icons.homeActive, class: "", label: "Home" },
   // { href: "#", icon: Feather, label: "Skills" },
   // { href: "#", icon: Gem, label: "Uses" },
-  { href: "/contact", icon: Mail, label: "Contact" },
+  { href: "/contact", icon: Icons.contact, activeIcon: Icons.contactActive, class: "size-3 mt-0 h-4 w-4 p-0 m-0", label: "Contact" },
 ]
 
 export function Navbar() {
@@ -39,16 +39,23 @@ export function Navbar() {
               href={item.href}
               aria-label={item.label}
               className={cn(
-                "flex flex-col justify-center py-2 text-center gap-0.5 mx-auto px-1",
-                isActive && "text-blue-500",
+                "flex flex-col justify-center py-2 text-center gap-0.5 h-16 w-16 mx-auto px-1",
+                
               )}
             >
-              <item.icon
-                className={cn("size-5 mx-auto mt-1.5")}
-                strokeWidth={0.8}
-              />
+              {isActive ? (
+                <item.activeIcon
+                  className={cn("mx-auto", item.class)}
+                  strokeWidth={0.8}
+                />
+              ) : (
+                <item.icon
+                  className={cn(" mx-auto", item.class)}
+                  strokeWidth={0.8}
+                />
+              )}
               <span
-                className={cn("text-xxs font-medium mb-0 pt-1.5 text-center mx-auto")}
+                className={cn("text-xxs font-medium p-0.5 text-center mx-auto", isActive && "font-bold")}
               >
                 {item.label}
               </span>
