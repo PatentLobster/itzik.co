@@ -28,6 +28,7 @@ const Skills = dynamic(
 )
 import { siteConfig } from "@/config/site"
 import Link from "next/link";
+import GlitchName from "@/components/glitch-name";
 
 
 export default function Home() {
@@ -38,6 +39,7 @@ export default function Home() {
             [HEADER]
           </div>
           <h1 className="text-4xl font-bold tracking-wider">Itzik Sokolov</h1>
+
           <h2 className={cn("text-xl font-bold", doto.className)}> @PATENTLOBSTER</h2>
         </div>
 

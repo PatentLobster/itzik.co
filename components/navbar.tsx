@@ -10,6 +10,7 @@ import {Icons} from "@/components/icons"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { Dock, DockIcon } from "@/components/dock"
+import GlitchName from "./glitch-name"
 
 
 const navbar = [
@@ -28,7 +29,14 @@ export function Navbar() {
       direction="middle"
       className="sticky z-50 bottom-8 backdrop-blur transition-colors  supports-backdrop-blur:bg-black/5  dark:border-slate-50/6 dark:text-white dark:supports-backdrop-blur:bg-white/5"
     >
-      <Logo className="text-3xl px-2" />
+          <GlitchName 
+              englishText="Itzik"
+              hebrewText="קיזיק"
+              changeIndices={[0, 1, 3]} // I, t, i positions
+              mode="both"
+              fontSize="text-3xl px-2"
+      />
+      
       <Separator orientation="vertical" className="h-full mr-2" />
       {navbar.map((item) => {
         const isActive = pathname === item.href

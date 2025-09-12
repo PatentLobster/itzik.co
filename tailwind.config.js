@@ -28,6 +28,8 @@ module.exports = {
 		fontFamily: {
             doto: ['var(--font-doto)'], // Referencing the CSS variable
 			figtree: ['var(--font-figtree)'], // Referencing the CSS variable
+			playpen: ['var(--font-playpen-sans-hebrew'],
+			gochi: ['var(--font-gochi-hand']
 			
         },
 		fontSize: {

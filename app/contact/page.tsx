@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { Figtree, Doto } from "next/font/google"
+
 import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
@@ -13,6 +13,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { useConfetti } from "@/hooks/use-confetti";
 
+import { Figtree, Doto } from "next/font/google"
 const figtree = Figtree({ subsets: ["latin"] })
 const doto = Doto({ subsets: ["latin"], display: "swap", weight: ["700"] })
 
