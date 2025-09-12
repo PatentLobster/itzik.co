@@ -1,10 +1,12 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
+
 import { m } from "framer-motion"
-import { useEffect, useState, useRef } from "react"
-import { Badge } from "@/components/ui/badge"
+import { CandlestickData, CandlestickSeries, createChart, Time } from "lightweight-charts"
 import { TrendingUp } from "lucide-react"
-import { createChart, CandlestickData, CandlestickSeries, Time } from "lightweight-charts"
+
+import { Badge } from "@/components/ui/badge"
 
 export function StockTradingViz() {
   const chartContainerRef = useRef<HTMLDivElement>(null)
@@ -35,8 +37,20 @@ export function StockTradingViz() {
           const open2 = close1 - 0.2
           const close2 = open1 + (Math.random() * 2 + 1) // Large green engulfing
           return [
-            { time: time as Time, open: open1, high: Math.max(open1, close1) + 0.3, low: Math.min(open1, close1) - 0.3, close: close1 },
-            { time: (time + 30) as Time, open: open2, high: close2 + 0.5, low: open2 - 0.2, close: close2 }
+            {
+              time: time as Time,
+              open: open1,
+              high: Math.max(open1, close1) + 0.3,
+              low: Math.min(open1, close1) - 0.3,
+              close: close1,
+            },
+            {
+              time: (time + 30) as Time,
+              open: open2,
+              high: close2 + 0.5,
+              low: open2 - 0.2,
+              close: close2,
+            },
           ]
         }
 
@@ -48,9 +62,27 @@ export function StockTradingViz() {
           const open3 = close2 + 0.2
           const close3 = open1 + (Math.random() * 2 + 0.5) // Strong green
           return [
-            { time: time as Time, open: open1, high: open1 + 0.3, low: close1 - 0.4, close: close1 },
-            { time: (time + 30) as Time, open: open2, high: open2 + 0.4, low: open2 - 0.4, close: close2 },
-            { time: (time + 60) as Time, open: open3, high: close3 + 0.6, low: open3 - 0.2, close: close3 }
+            {
+              time: time as Time,
+              open: open1,
+              high: open1 + 0.3,
+              low: close1 - 0.4,
+              close: close1,
+            },
+            {
+              time: (time + 30) as Time,
+              open: open2,
+              high: open2 + 0.4,
+              low: open2 - 0.4,
+              close: close2,
+            },
+            {
+              time: (time + 60) as Time,
+              open: open3,
+              high: close3 + 0.6,
+              low: open3 - 0.2,
+              close: close3,
+            },
           ]
         }
 
@@ -63,7 +95,7 @@ export function StockTradingViz() {
             open,
             high: Math.max(open, close) + range * 0.7,
             low: Math.min(open, close) - range * 0.7,
-            close
+            close,
           }
         }
 
@@ -76,7 +108,7 @@ export function StockTradingViz() {
             open,
             high: Math.max(open, close) + 0.3,
             low,
-            close
+            close,
           }
         }
 
@@ -89,7 +121,7 @@ export function StockTradingViz() {
             open,
             high,
             low: Math.min(open, close) - 0.3,
-            close
+            close,
           }
         }
 
@@ -104,7 +136,7 @@ export function StockTradingViz() {
               open,
               high: close + Math.random() * 0.5,
               low: open - Math.random() * 0.3,
-              close
+              close,
             })
             currentPrice = close
           }
@@ -115,14 +147,14 @@ export function StockTradingViz() {
         const generateInitialData = () => {
           const data: CandlestickData[] = []
           let price = 95
-          const startTime = Math.floor(Date.now() / 1000) - (25 * 30) // 25 periods of 30 seconds ago
-          
+          const startTime = Math.floor(Date.now() / 1000) - 25 * 30 // 25 periods of 30 seconds ago
+
           for (let i = 0; i < 25; i++) {
             const time = startTime + i * 30
-            
+
             // 10% chance for special patterns
             const patternRandom = Math.random()
-            
+
             if (patternRandom < 0.02 && i < 23) {
               // Bullish Engulfing (2 candles)
               const pattern = createBullishEngulfing(price, time)
@@ -153,7 +185,7 @@ export function StockTradingViz() {
             } else {
               // Regular candles with bigger price ranges for taller candles
               const isUpCandle = Math.random() < 0.8
-              
+
               if (isUpCandle) {
                 // Tall green candle
                 const open = price
@@ -161,7 +193,7 @@ export function StockTradingViz() {
                 const close = open + change
                 const high = close + Math.random() * 1.2
                 const low = open - Math.random() * 0.5
-                
+
                 data.push({ time: time as Time, open, high, low, close })
                 price = close
               } else {
@@ -171,13 +203,13 @@ export function StockTradingViz() {
                 const close = open - change
                 const high = open + Math.random() * 0.5
                 const low = close - Math.random() * 0.5
-                
+
                 data.push({ time: time as Time, open, high, low, close })
                 price = close
               }
             }
           }
-          
+
           return data
         }
 
@@ -187,11 +219,11 @@ export function StockTradingViz() {
           layout: {
             background: { color: "transparent" },
             textColor: "#d1d5db",
-            attributionLogo: false
+            attributionLogo: false,
           },
           grid: {
             vertLines: { color: "rgba(42, 46, 57, 0.3)" },
-              horzLines: { color: "rgba(42, 46, 57, 0.3)" },
+            horzLines: { color: "rgba(42, 46, 57, 0.3)" },
           },
           crosshair: {
             mode: 0, // Disable crosshair for non-interactive experience
@@ -231,11 +263,11 @@ export function StockTradingViz() {
         const initialData = generateInitialData()
         candlestickSeries.setData(initialData)
         currentPrice = initialData[initialData.length - 1].close
-        
+
         // Set initial opening price for daily change calculation
         setOpenPrice(initialData[0].open)
         setCurrentPrice(currentPrice)
-        
+
         // Fit content and set visible range to show fewer candles for bigger appearance
         chart.timeScale().fitContent()
         chart.timeScale().setVisibleLogicalRange({ from: 5, to: 25 }) // Show only last 20 candles
@@ -243,27 +275,27 @@ export function StockTradingViz() {
         // Simple continuous real-time updates
         intervalID = setInterval(() => {
           candleCount++
-          
+
           // Create new candle every 3 updates (simulating 3 price updates per 9-second candle)
           const isNewCandle = candleCount % 3 === 1
-          
+
           if (isNewCandle) {
             // Occasionally create special patterns (5% chance)
             const patternRandom = Math.random()
             const time = Math.floor(Date.now() / 1000)
-            
+
             if (patternRandom < 0.02) {
               // Doji pattern
               const pattern = createDoji(currentPrice, time)
               candlestickSeries.update(pattern)
               const previousPrice = currentPrice
               currentPrice = pattern.close
-              
+
               // Calculate dynamic indicators
               const dailyChange = ((currentPrice - openPrice) / openPrice) * 100
               const momentumValue = ((currentPrice - previousPrice) / previousPrice) * 100 * 5
-              const volatilityValue = Math.abs(pattern.high - pattern.low) / currentPrice * 100
-              
+              const volatilityValue = (Math.abs(pattern.high - pattern.low) / currentPrice) * 100
+
               // Update UI state
               setCurrentPrice(currentPrice)
               setTrend(currentPrice > pattern.open ? "up" : "down")
@@ -277,12 +309,12 @@ export function StockTradingViz() {
               candlestickSeries.update(pattern)
               const previousPrice = currentPrice
               currentPrice = pattern.close
-              
+
               // Calculate dynamic indicators
               const dailyChange = ((currentPrice - openPrice) / openPrice) * 100
               const momentumValue = ((currentPrice - previousPrice) / previousPrice) * 100 * 5
-              const volatilityValue = Math.abs(pattern.high - pattern.low) / currentPrice * 100
-              
+              const volatilityValue = (Math.abs(pattern.high - pattern.low) / currentPrice) * 100
+
               // Update UI state
               setCurrentPrice(currentPrice)
               setTrend(currentPrice > pattern.open ? "up" : "down")
@@ -296,12 +328,12 @@ export function StockTradingViz() {
               candlestickSeries.update(pattern)
               const previousPrice = currentPrice
               currentPrice = pattern.close
-              
+
               // Calculate dynamic indicators
               const dailyChange = ((currentPrice - openPrice) / openPrice) * 100
               const momentumValue = ((currentPrice - previousPrice) / previousPrice) * 100 * 5
-              const volatilityValue = Math.abs(pattern.high - pattern.low) / currentPrice * 100
-              
+              const volatilityValue = (Math.abs(pattern.high - pattern.low) / currentPrice) * 100
+
               // Update UI state
               setCurrentPrice(currentPrice)
               setTrend(currentPrice > pattern.open ? "up" : "down")
@@ -312,16 +344,16 @@ export function StockTradingViz() {
             } else {
               // Regular candles with much taller bodies
               const shouldGoUp = Math.random() < 0.85
-              
+
               // Less frequent trend reversals to maintain strong uptrend
               if (candleCount % 40 === 0) {
                 trendDirection *= -1
               }
-              
+
               const previousPrice = currentPrice
               const open = currentPrice
               let close: number
-              
+
               if (shouldGoUp && trendDirection === 1) {
                 // Very tall green candle
                 close = open + (Math.random() * 6 + 2) // 2 to 8 increase (much taller)
@@ -335,19 +367,19 @@ export function StockTradingViz() {
                 // Red candle during brief downtrend
                 close = open - (Math.random() * 3 + 0.5) // 0.5 to 3.5 decrease
               }
-              
+
               const high = Math.max(open, close) + Math.random() * 1.5
               const low = Math.min(open, close) - Math.random() * 1.0
-              
+
               const newCandle: CandlestickData = { time: time as Time, open, high, low, close }
               candlestickSeries.update(newCandle)
               currentPrice = close
-              
+
               // Calculate dynamic indicators with enhanced visibility
               const dailyChange = ((close - openPrice) / openPrice) * 100
               const momentumValue = ((close - previousPrice) / previousPrice) * 100 * 5 // Amplify momentum for visibility
-              const volatilityValue = Math.abs(high - low) / close * 100
-              
+              const volatilityValue = (Math.abs(high - low) / close) * 100
+
               // Update UI state
               setCurrentPrice(close)
               setTrend(close > open ? "up" : "down")
@@ -356,7 +388,6 @@ export function StockTradingViz() {
               setMomentum(momentumValue)
               setVolatility(volatilityValue)
             }
-            
           } else {
             // Update the current candle (intra-candle movement) with bigger fluctuations
             const previousPrice = currentPrice
@@ -368,15 +399,16 @@ export function StockTradingViz() {
               low: currentPrice - Math.random() * 1.0 - 0.5, // Lower lows
               close: currentPrice + fluctuation,
             }
-            
+
             candlestickSeries.update(lastCandle)
             currentPrice = lastCandle.close
-            
+
             // Calculate dynamic indicators for intra-candle updates
             const dailyChange = ((currentPrice - openPrice) / openPrice) * 100
             const momentumValue = ((currentPrice - previousPrice) / previousPrice) * 100 * 5 // Amplified
-            const volatilityValue = Math.abs(lastCandle.high - lastCandle.low) / currentPrice * 100
-            
+            const volatilityValue =
+              (Math.abs(lastCandle.high - lastCandle.low) / currentPrice) * 100
+
             setCurrentPrice(lastCandle.close)
             setTrend(lastCandle.close > lastCandle.open ? "up" : "down")
             setVolume(Math.random() * 4 + 1)
@@ -384,7 +416,6 @@ export function StockTradingViz() {
             setMomentum(momentumValue)
             setVolatility(volatilityValue)
           }
-          
         }, 3000) // Much slower update frequency for smoother, less chaotic experience
 
         return () => {
@@ -406,15 +437,15 @@ export function StockTradingViz() {
   }, [trend, volume, priceChange, momentum, volatility])
 
   return (
-    <div className="relative h-52 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-t-lg  p-4 overflow-hidden">
-      <div className="absolute top-4 left-4 flex items-center gap-2">
-        <TrendingUp className="w-5 h-5 text-green-500" />
+    <div className="relative h-52 overflow-hidden rounded-t-lg bg-gradient-to-br from-green-500/10 to-blue-500/10 p-4">
+      <div className="absolute left-4 top-4 flex items-center gap-2">
+        <TrendingUp className="h-5 w-5 text-green-500" />
         <span className="font-mono text-sm">ALGO-TRADE</span>
       </div>
 
-      <div className="absolute top-4 right-4 sm:visible md:hidden">
+      <div className="absolute right-4 top-4 sm:visible md:hidden">
         <m.div
-          className={`text-lg font-mono ${trend === "up" ? "text-green-500" : "text-red-500"}`}
+          className={`font-mono text-lg ${trend === "up" ? "text-green-500" : "text-red-500"}`}
           animate={{ scale: trend === "up" ? [1, 1.1, 1] : [1, 0.9, 1] }}
           transition={{ duration: 0.3 }}
         >
@@ -425,23 +456,22 @@ export function StockTradingViz() {
       {/* TradingView Chart Container */}
       <div
         ref={chartContainerRef}
-        className="absolute top-12 bottom-8 left-4 right-4 pointer-events-none"
-        style={{ userSelect: 'none' }}
+        className="pointer-events-none absolute bottom-8 left-4 right-4 top-12"
+        style={{ userSelect: "none" }}
       />
 
       {/* Trading indicators */}
       <div className="absolute bottom-2 left-4 flex gap-2 sm:visible md:hidden">
-        <Badge 
-          variant="secondary" 
-          className={`text-xs font-bold ${priceChange >= 0 ? 'text-green-400 bg-green-900/20 border-green-500/30' : 'text-red-400 bg-red-900/20 border-red-500/30'}`}
+        <Badge
+          variant="secondary"
+          className={`text-xs font-bold ${priceChange >= 0 ? "border-green-500/30 bg-green-900/20 text-green-400" : "border-red-500/30 bg-red-900/20 text-red-400"}`}
         >
-          {priceChange >= 0 ? '+' : ''}{priceChange.toFixed(2)}%
+          {priceChange >= 0 ? "+" : ""}
+          {priceChange.toFixed(2)}%
         </Badge>
-        <Badge 
-          variant="secondary" 
-          className={`text-xs `}
-        >
-          MOM: {momentum >= 0 ? '+' : ''}{momentum.toFixed(1)}%
+        <Badge variant="secondary" className={`text-xs`}>
+          MOM: {momentum >= 0 ? "+" : ""}
+          {momentum.toFixed(1)}%
         </Badge>
         <Badge variant="secondary" className="text-xs">
           Volatility: {volatility.toFixed(1)}%

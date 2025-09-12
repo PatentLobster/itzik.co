@@ -1,43 +1,54 @@
-import { cn } from "@/lib/utils";
-import React from "react";
-import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
+import React from "react"
+
+import dynamic from "next/dynamic"
+
 import {
   IconClipboardCopy,
   IconFileBroken,
   IconSignature,
   IconTableColumn,
-} from "@tabler/icons-react";
-import dynamic from "next/dynamic"
+} from "@tabler/icons-react"
+
+import { cn } from "@/lib/utils"
+
+import { BentoGrid, BentoGridItem } from "../ui/bento-grid"
+
 // import { HackingViz } from "../visualizations/hacking";
 
-const DevOpsViz = dynamic(() => import("../visualizations/devops").then((mod) => ({ default: mod.DevOpsViz })), {
+const DevOpsViz = dynamic(
+  () => import("../visualizations/devops").then((mod) => ({ default: mod.DevOpsViz })),
+  {
     loading: () => <Skeleton />,
     ssr: false,
-  });
-  const HackingViz = dynamic(() => import("../visualizations/hacking").then((mod) => ({ default: mod.HackingViz })), {
+  }
+)
+const HackingViz = dynamic(
+  () => import("../visualizations/hacking").then((mod) => ({ default: mod.HackingViz })),
+  {
     loading: () => <Skeleton />,
     ssr: false,
-  })
+  }
+)
 
-  const StockTradingViz = dynamic(
-    () => import("../visualizations/stocks").then((mod) => ({ default: mod.StockTradingViz })),
-    {
-      loading: () => <Skeleton />,
-      ssr: false,
-    },
-  )
+const StockTradingViz = dynamic(
+  () => import("../visualizations/stocks").then((mod) => ({ default: mod.StockTradingViz })),
+  {
+    loading: () => <Skeleton />,
+    ssr: false,
+  }
+)
 
-  const LearningViz = dynamic(
-    () => import("../visualizations/learning").then((mod) => ({ default: mod.LearningViz })),
-    {
-      loading: () => <Skeleton />,
-      ssr: false,
-    },
-  )
+const LearningViz = dynamic(
+  () => import("../visualizations/learning").then((mod) => ({ default: mod.LearningViz })),
+  {
+    loading: () => <Skeleton />,
+    ssr: false,
+  }
+)
 
 export function Skills() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -48,16 +59,15 @@ export function Skills() {
         />
       ))}
     </BentoGrid>
-  );
+  )
 }
 const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
-);
+  <div className="dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex h-full min-h-[6rem] w-full flex-1 rounded-xl border border-transparent bg-neutral-100 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] dark:border-white/[0.2] dark:bg-black"></div>
+)
 const items = [
   {
     title: "Ethical Hacking",
-    description:
-      "Penetration testing, vulnerability assessment, and cybersecurity research.",
+    description: "Penetration testing, vulnerability assessment, and cybersecurity research.",
     header: <HackingViz />,
     className: "md:col-span-2",
   },
@@ -79,5 +89,4 @@ const items = [
     header: <DevOpsViz />,
     className: "md:col-span-2 pb-2",
   },
-
-];
+]

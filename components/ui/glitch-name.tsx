@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 
+import { Gochi_Hand, Playpen_Sans_Hebrew } from "next/font/google"
 
-import { Playpen_Sans_Hebrew, Gochi_Hand } from "next/font/google"
+import { AnimatePresence, motion } from "framer-motion"
+
 import { cn } from "@/lib/utils"
-const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"] })
+
+// const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"] })
+const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"], variable: "--font-playpen", adjustFontFallback: false})
 const gochi = Gochi_Hand({ subsets: ["latin"], display: "swap", weight: ["400"] })
 
 interface GlitchNameProps {
@@ -76,21 +79,20 @@ export default function GlitchName({
   return (
     <div className="flex items-center justify-center">
       <style jsx global>{`
-        
         .letter-container {
           position: relative;
           display: inline-block;
           width: 0.6ch;
           text-align: center;
         }
-        
+
         .letter-container.wide {
           width: 0.5ch;
         }
       `}</style>
 
       <motion.div
-        className={`${fontSize} font-bold cursor-pointer select-none ${className}`}
+        className={`${fontSize} cursor-pointer select-none font-bold ${className}`}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -107,7 +109,10 @@ export default function GlitchName({
                   {!shouldChange || !showHebrew() ? (
                     <motion.span
                       key={`${letter}-en-${index}`}
-                      className={cn(" absolute inset-0 flex items-center justify-center gochi", gochi.className)}
+                      className={cn(
+                        "gochi absolute inset-0 flex items-center justify-center",
+                        gochi.className
+                      )}
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2, delay: index * 0.05 }}
@@ -117,7 +122,10 @@ export default function GlitchName({
                   ) : (
                     <motion.span
                       key={`${hebrewLetter}-he-${index}`}
-                      className={cn("playpen  absolute inset-0 flex items-center justify-center", playpen.className)}
+                      className={cn(
+                        "playpen absolute inset-0 flex items-center justify-center",
+                        playpen.className
+                      )}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}

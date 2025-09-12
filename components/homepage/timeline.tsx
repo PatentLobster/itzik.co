@@ -1,5 +1,7 @@
 import type React from "react"
+
 import Link from "next/link"
+
 import { Brain } from "lucide-react"
 
 interface TimelineItem {
@@ -16,7 +18,7 @@ const timelineData: TimelineItem[] = [
     title: "Net.Sokolov",
     dateRange: "2013 - 2019",
     icon: (
-        <svg height="1em" width="1em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+      <svg height="1em" width="1em" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
         <title>user laptop</title>
         <g fill="#737373">
           <path
@@ -66,13 +68,16 @@ const timelineData: TimelineItem[] = [
     title: "Rank",
     dateRange: "2019 - 2021",
     icon: <span className="font-medium opacity-40">R</span>,
-    
   },
   {
     id: "brainpop",
     title: "BrainPOP",
     dateRange: "2021 - 2025",
-    icon: <span><Brain className="font-medium opacity-40 h-4"/></span>
+    icon: (
+      <span>
+        <Brain className="h-4 font-medium opacity-40" />
+      </span>
+    ),
     // <span className="font-medium opacity-40">S</span>,
   },
   {
@@ -81,17 +86,31 @@ const timelineData: TimelineItem[] = [
     dateRange: "2025 - Now",
     isActive: true,
     icon: (
-
-<svg width="16" height="16" viewBox="0 0 128 128" fill="white" xmlns="http://www.w3.org/2000/svg">
-<path d="M65.1558 63.7135C78.2115 63.433 90.6314 58.3892 99.7587 49.6593C108.887 40.9295 113.999 29.2072 114 17H38.9997L14 63.7406H62.6016V63.7731C49.59 64.1121 37.2323 69.1801 28.1563 77.9028C19.0803 86.6255 14.0016 98.3136 14 110.481H88.9999L114 63.7406H65.1558V63.7135Z" fill="url(#paint0_linear_4673_3536)"/>
-<defs>
-<linearGradient id="paint0_linear_4673_3536" x1="100.365" y1="29.3078" x2="28.5919" y2="101.402" gradientUnits="userSpaceOnUse">
-<stop offset="0.150166" stopColor="currentColor"/>
-<stop offset="1" stopColor="currentColor"/>
-</linearGradient>
-</defs>
-</svg>
-
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 128 128"
+        fill="white"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M65.1558 63.7135C78.2115 63.433 90.6314 58.3892 99.7587 49.6593C108.887 40.9295 113.999 29.2072 114 17H38.9997L14 63.7406H62.6016V63.7731C49.59 64.1121 37.2323 69.1801 28.1563 77.9028C19.0803 86.6255 14.0016 98.3136 14 110.481H88.9999L114 63.7406H65.1558V63.7135Z"
+          fill="url(#paint0_linear_4673_3536)"
+        />
+        <defs>
+          <linearGradient
+            id="paint0_linear_4673_3536"
+            x1="100.365"
+            y1="29.3078"
+            x2="28.5919"
+            y2="101.402"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0.150166" stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" />
+          </linearGradient>
+        </defs>
+      </svg>
     ),
   },
 ]
@@ -145,7 +164,9 @@ export function Timeline() {
                   </span>
                 </div>
                 {/* Date range */}
-                <span className="font-mono text-[8px] text-muted-foreground sm:text-xs">{item.dateRange}</span>
+                <span className="font-mono text-[8px] text-muted-foreground sm:text-xs">
+                  {item.dateRange}
+                </span>
               </div>
             </div>
           ))}
@@ -182,7 +203,6 @@ export function Timeline() {
               </Link>
             </div>
             */}
-        
         </div>
       </div>
     </div>

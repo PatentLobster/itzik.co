@@ -1,7 +1,8 @@
 "use client"
 
-import { m } from "framer-motion"
 import { useEffect, useState } from "react"
+
+import { m } from "framer-motion"
 import { Shield } from "lucide-react"
 
 const terminalCommands = [
@@ -28,18 +29,18 @@ export function HackingViz() {
   }, [])
 
   return (
-    <div className="relative h-52 bg-gradient-to-br from-red-500/10  rounded-t-lg to-pink-500/10 p-4">
-      <div className="flex items-center gap-2 mb-4">
-        <Shield className="w-5 h-5 text-red-500" />
+    <div className="relative h-52 rounded-t-lg bg-gradient-to-br from-red-500/10 to-pink-500/10 p-4">
+      <div className="mb-4 flex items-center gap-2">
+        <Shield className="h-5 w-5 text-red-500" />
         <span className="font-mono text-sm">Penetration Testing</span>
       </div>
 
-      <div className="bg-black/80 rounded p-3 h-38 overflow-hidden font-mono text-xs">
-        <div className="text-green-400 mb-2">root@pwned:~#</div>
+      <div className="h-38 overflow-hidden rounded bg-black/80 p-3 font-mono text-xs">
+        <div className="mb-2 text-green-400">root@pwned:~#</div>
         {commands.map((cmd, index) => (
           <m.div
             key={index}
-            className="text-green-300 mb-1"
+            className="mb-1 text-green-300"
             initial={{ opacity: 1, x: 10 }}
             transition={{ duration: 0.5 }}
           >
@@ -47,10 +48,10 @@ export function HackingViz() {
           </m.div>
         ))}
         <m.div
-          className="w-2 h-4 bg-green-400 inline-block pb-4"
+          className="inline-block h-4 w-2 bg-green-400 pb-4"
           animate={{ opacity: [1, 0, 1] }}
-          initial={{opacity: 1}}
-          transition={{ duration: 1,  repeat: Number.POSITIVE_INFINITY }}
+          initial={{ opacity: 1 }}
+          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function useIsDesktop(width: number = 768) {
   const [isDesktop, setIsDesktop] = useState(false)

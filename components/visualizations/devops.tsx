@@ -1,7 +1,8 @@
 "use client"
 
-import { m, motion } from "framer-motion"
 import { useEffect, useState } from "react"
+
+import { m, motion } from "framer-motion"
 import { Server } from "lucide-react"
 
 export function DevOpsViz() {
@@ -17,30 +18,30 @@ export function DevOpsViz() {
   }, [stages.length])
 
   return (
-    <div className="relative h-48 bg-gradient-to-br from-blue-500/10  rounded-t-lg to-purple-500/10 p-4">
-      <div className="flex items-center gap-2 mb-4">
-        <Server className="w-5 h-5 text-blue-500" />
+    <div className="relative h-48 rounded-t-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-4">
+      <div className="mb-4 flex items-center gap-2">
+        <Server className="h-5 w-5 text-blue-500" />
         <span className="font-mono text-sm">CI/CD Pipeline</span>
       </div>
 
-      <div className="relative flex justify-between items-center h-20 mb-4  z-50">
+      <div className="relative z-50 mb-4 flex h-20 items-center justify-between">
         {/* Progress line background */}
-        <div className="absolute top-6 left-6 right-6 h-0.5 bg-muted-foreground/20 rounded-full " />
+        <div className="absolute left-6 right-6 top-6 h-0.5 rounded-full bg-muted-foreground/20" />
 
         {/* Animated progress line */}
         <motion.div
-          className="absolute top-[1.65rem] left-6 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"
+          className="absolute left-6 top-[1.65rem] h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-green-500"
           animate={{
             width: `calc((100% - 3rem) * ${activeStage / (stages.length - 1)})`,
           }}
-          initial={{width: "0%"}}
+          initial={{ width: "0%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         />
 
         {stages.map((stage, index) => (
-          <div key={stage} className="flex flex-col items-center relative z-10">
+          <div key={stage} className="relative z-10 flex flex-col items-center">
             <m.div
-              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center ${
+              className={`flex h-12 w-12 items-center justify-center rounded-full border-2 ${
                 index <= activeStage
                   ? index === activeStage
                     ? "border-blue-500 bg-blue-500/20"
@@ -54,38 +55,38 @@ export function DevOpsViz() {
             >
               {index < activeStage ? (
                 <m.div
-                  className="w-3 h-3 bg-green-500 rounded-full"
+                  className="h-3 w-3 rounded-full bg-green-500"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                 />
               ) : index === activeStage ? (
                 <m.div
-                  className="w-2 h-2 bg-blue-500 rounded-full"
+                  className="h-2 w-2 rounded-full bg-blue-500"
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 0.5, repeat: Number.POSITIVE_INFINITY }}
                 />
               ) : (
-                <div className="w-2 h-2 bg-muted-foreground/30 rounded-full" />
+                <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
               )}
             </m.div>
 
-            <span className="text-xs mt-2 font-mono">{stage}</span>
+            <span className="mt-2 font-mono text-xs">{stage}</span>
           </div>
         ))}
       </div>
 
       {/* Server metrics */}
-      <div className="relative grid grid-cols-3 gap-2 -top-[0.75rem] text-xs font-mono">
-        <div className="bg-background/50 rounded p-2 text-center">
-          <div className="text-green-500 font-bold">45%</div>
+      <div className="relative -top-[0.75rem] grid grid-cols-3 gap-2 font-mono text-xs">
+        <div className="rounded bg-background/50 p-2 text-center">
+          <div className="font-bold text-green-500">45%</div>
           <div className="text-muted-foreground">CPU</div>
         </div>
-        <div className="bg-background/50 rounded p-2 text-center">
-          <div className="text-blue-500 font-bold">2.1GB</div>
+        <div className="rounded bg-background/50 p-2 text-center">
+          <div className="font-bold text-blue-500">2.1GB</div>
           <div className="text-muted-foreground">Memory</div>
         </div>
-        <div className="bg-background/50 rounded p-2 text-center">
-          <div className="text-purple-500 font-bold">99.9%</div>
+        <div className="rounded bg-background/50 p-2 text-center">
+          <div className="font-bold text-purple-500">99.9%</div>
           <div className="text-muted-foreground">Uptime</div>
         </div>
       </div>

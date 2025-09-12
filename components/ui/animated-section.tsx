@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
+import { motion, useInView } from "framer-motion"
 
 export function AnimatedSection({ children }: { children: React.ReactNode }) {
   const ref = useRef(null)

@@ -1,7 +1,8 @@
 "use client"
 
-import { LazyMotion, domAnimation } from "framer-motion"
 import type { ReactNode } from "react"
+
+import { domAnimation, LazyMotion } from "framer-motion"
 
 interface LazyMotionWrapperProps {
   children: ReactNode

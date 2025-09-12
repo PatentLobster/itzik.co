@@ -33,7 +33,7 @@ export function useIntersectionObserver({
           }
         }
       },
-      { threshold, rootMargin },
+      { threshold, rootMargin }
     )
 
     observer.observe(element)

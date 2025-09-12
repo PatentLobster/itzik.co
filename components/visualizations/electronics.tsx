@@ -1,7 +1,8 @@
 "use client"
 
-import { m } from "framer-motion"
 import { useEffect, useState } from "react"
+
+import { m } from "framer-motion"
 import { Zap } from "lucide-react"
 
 export function ElectronicsViz() {
@@ -44,16 +45,23 @@ export function ElectronicsViz() {
   const currentPos = circuitPath[currentPosition]
 
   return (
-    <div className="relative h-54 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-lg p-4">
-      <div className="flex items-center gap-2 mb-4">
-        <Zap className="w-5 h-5 text-yellow-500" />
+    <div className="h-54 relative rounded-lg bg-gradient-to-br from-yellow-500/10 to-orange-500/10 p-4">
+      <div className="mb-4 flex items-center gap-2">
+        <Zap className="h-5 w-5 text-yellow-500" />
         <span className="font-mono text-sm">Circuit Analysis</span>
       </div>
 
-      <div className="relative h-24 mb-2">
+      <div className="relative mb-2 h-24">
         <svg width="100%" height="100%" viewBox="0 0 300 96">
           {/* Circuit board background */}
-          <rect width="300" height="96" fill="none" stroke="currentColor" strokeOpacity="0.1" strokeWidth="1" />
+          <rect
+            width="300"
+            height="96"
+            fill="none"
+            stroke="currentColor"
+            strokeOpacity="0.1"
+            strokeWidth="1"
+          />
 
           {/* Power source */}
           <g transform="translate(20, 40)">
@@ -67,7 +75,15 @@ export function ElectronicsViz() {
 
           {/* Resistor */}
           <g transform="translate(80, 40)">
-            <rect x="-12" y="-4" width="24" height="8" fill="none" stroke="currentColor" strokeWidth="2" />
+            <rect
+              x="-12"
+              y="-4"
+              width="24"
+              height="8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
             <text x="0" y="-12" textAnchor="middle" fontSize="8" fill="currentColor">
               R1
             </text>
@@ -148,13 +164,29 @@ export function ElectronicsViz() {
 
           {/* Voltage measurement points */}
           <g transform="translate(50, 25)">
-            <line x1="0" y1="0" x2="0" y2="10" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="10"
+              stroke="#ef4444"
+              strokeWidth="1"
+              strokeDasharray="2,2"
+            />
             <text x="0" y="-5" textAnchor="middle" fontSize="6" fill="#ef4444">
               +
             </text>
           </g>
           <g transform="translate(190, 25)">
-            <line x1="0" y1="0" x2="0" y2="10" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="10"
+              stroke="#ef4444"
+              strokeWidth="1"
+              strokeDasharray="2,2"
+            />
             <text x="0" y="-5" textAnchor="middle" fontSize="6" fill="#ef4444">
               -
             </text>
@@ -162,17 +194,17 @@ export function ElectronicsViz() {
         </svg>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 text-xs font-mono">
-        <div className="bg-background/50 rounded p-2 text-center">
-          <div className="text-yellow-500 font-bold">{voltage.toFixed(2)}V</div>
+      <div className="grid grid-cols-3 gap-2 font-mono text-xs">
+        <div className="rounded bg-background/50 p-2 text-center">
+          <div className="font-bold text-yellow-500">{voltage.toFixed(2)}V</div>
           <div className="text-muted-foreground">Voltage</div>
         </div>
-        <div className="bg-background/50 rounded p-2 text-center">
-          <div className="text-blue-500 font-bold">{current.toFixed(3)}A</div>
+        <div className="rounded bg-background/50 p-2 text-center">
+          <div className="font-bold text-blue-500">{current.toFixed(3)}A</div>
           <div className="text-muted-foreground">Current</div>
         </div>
-        <div className="bg-background/50 rounded p-2 pb-4 text-center">
-          <div className="text-green-500 font-bold">{power.toFixed(2)}W</div>
+        <div className="rounded bg-background/50 p-2 pb-4 text-center">
+          <div className="font-bold text-green-500">{power.toFixed(2)}W</div>
           <div className="text-muted-foreground">Power</div>
         </div>
       </div>

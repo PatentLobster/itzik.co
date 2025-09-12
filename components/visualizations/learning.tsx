@@ -1,8 +1,9 @@
 "use client"
 
-import { m } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Database, Globe, Terminal, Book, Brain } from "lucide-react"
+
+import { m } from "framer-motion"
+import { Book, Brain, Database, Globe, Terminal } from "lucide-react"
 
 const dataSources = [
   { name: "StackOverflow", icon: Globe, color: "text-blue-500" },
@@ -55,31 +56,45 @@ export function LearningViz() {
           y:
             stream.x > 150
               ? stream.y
-              : 60 + stream.source * 30 + ((150 - stream.x) * (75 - (60 + stream.source * 30))) / 70,
-        })),
+              : 60 +
+                stream.source * 30 +
+                ((150 - stream.x) * (75 - (60 + stream.source * 30))) / 70,
+        }))
       )
     }, 50)
 
     return () => clearInterval(moveInterval)
   }, [])
   return (
-    <div className="relative h-48 bg-gradient-to-br from-teal-500/10 via-blue-500/10 to-green-500/10  rounded-t-lg p-4 overflow-hidden">
-      <div className="flex items-center gap-2 mb-3">
-        <Brain className="w-5 h-5 text-yellow-600" />
+    <div className="relative h-48 overflow-hidden rounded-t-lg bg-gradient-to-br from-teal-500/10 via-blue-500/10 to-green-500/10 p-4">
+      <div className="mb-3 flex items-center gap-2">
+        <Brain className="h-5 w-5 text-yellow-600" />
         <span className="font-mono text-sm">Self Educated</span>
       </div>
 
-      <div className="relative h-48 mb-5 sm:mt-0 md:-mt-8 overflow-hidden ">
+      <div className="relative mb-5 h-48 overflow-hidden sm:mt-0 md:-mt-8">
         <div className="absolute left-6 top-14">
-          <m.div className="w-12 h-12 relative">
+          <m.div className="relative h-12 w-12">
             {mouthOpen ? (
               <svg width="48" height="48" viewBox="0 0 568 568" className="absolute z-40">
-                <path fill="#FCD34D" stroke="#F59E0B" strokeWidth="18" d="M535.441,412.339A280.868,280.868 0 1,1 536.186,161.733L284.493,286.29Z"/>
+                <path
+                  fill="#FCD34D"
+                  stroke="#F59E0B"
+                  strokeWidth="18"
+                  d="M535.441,412.339A280.868,280.868 0 1,1 536.186,161.733L284.493,286.29Z"
+                />
                 <circle cx="340" cy="140" r="20" fill="#000" />
               </svg>
             ) : (
-            <svg width="48" height="48" viewBox="0 0 568 568" className="absolute z-40">
-                <circle cx="284" cy="284" r="282" fill="#FCD34D" stroke="#F59E0B" strokeWidth="18" />
+              <svg width="48" height="48" viewBox="0 0 568 568" className="absolute z-40">
+                <circle
+                  cx="284"
+                  cy="284"
+                  r="282"
+                  fill="#FCD34D"
+                  stroke="#F59E0B"
+                  strokeWidth="18"
+                />
                 <circle cx="340" cy="140" r="20" fill="#000" />
               </svg>
             )}
@@ -91,11 +106,11 @@ export function LearningViz() {
           return (
             <div
               key={source.name}
-              className="absolute right-8 flex items-center gap-2 z-10 md:hidden"
+              className="absolute right-8 z-10 flex items-center gap-2 md:hidden"
               style={{ top: 50 + index * 30 }}
             >
-              <Icon className={`w-5 h-5 ${source.color}`} />
-              <span className="text-xs font-mono text-muted-foreground">{source.name}</span>
+              <Icon className={`h-5 w-5 ${source.color}`} />
+              <span className="font-mono text-xs text-muted-foreground">{source.name}</span>
             </div>
           )
         })}
@@ -119,7 +134,12 @@ export function LearningViz() {
         ))}
 
         {dataSources.map((_, index) => (
-          <svg key={`curve-${index}`} className="absolute inset-0 pointer-events-none" width="100%" height="100%">
+          <svg
+            key={`curve-${index}`}
+            className="pointer-events-none absolute inset-0"
+            width="100%"
+            height="100%"
+          >
             <path
               d={`M 240 ${65 + index * 30} Q 160 ${65 + index * 30} 75 85`}
               stroke="currentColor"
@@ -131,7 +151,6 @@ export function LearningViz() {
           </svg>
         ))}
       </div>
-
     </div>
   )
 }

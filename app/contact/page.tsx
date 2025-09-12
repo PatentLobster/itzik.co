@@ -1,19 +1,20 @@
 "use client"
 
 import type React from "react"
+import { useState } from "react"
 
+import { Doto, Figtree } from "next/font/google"
+import Link from "next/link"
 
-import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
+import { ArrowLeft, CheckCircle, Copy, Mail, MessageCircle, Send } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MessageCircle, Send, ArrowLeft, Copy, CheckCircle } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import { useConfetti } from "@/hooks/use-confetti";
+import { useConfetti } from "@/hooks/use-confetti"
+import { cn } from "@/lib/utils"
 
-import { Figtree, Doto } from "next/font/google"
 const figtree = Figtree({ subsets: ["latin"] })
 const doto = Doto({ subsets: ["latin"], display: "swap", weight: ["700"] })
 
@@ -39,16 +40,16 @@ export default function Contact() {
     }))
   }
 
-  const throwConfetti = useConfetti();
+  const throwConfetti = useConfetti()
 
   async function handleSubmit(event: any) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+    event.preventDefault()
+    const formData = new FormData(event.target)
 
-    formData.append("access_key",  process.env.NEXT_PUBLIC_WEB3_FORMS_KEY ?? "");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3_FORMS_KEY ?? "")
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -57,161 +58,165 @@ export default function Contact() {
         Accept: "application/json",
       },
       body: json,
-    });
-    const result = await response.json();
+    })
+    const result = await response.json()
     if (result.success) {
-      await throwConfetti();
+      await throwConfetti()
     }
   }
 
   return (
     <>
-
-        {/* Header Section */}
-        <div className={cn("space-y-2 relative", figtree.className)}>
-          <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
-            [HEADER]
-          </div>
-          <h1 className="text-4xl font-bold tracking-wider">Let&apos;s Connect</h1>
-          <h2 className={cn("text-xl font-bold text-foreground", doto.className)}>DROP ME A LINE</h2>
+      {/* Header Section */}
+      <div className={cn("relative space-y-2", figtree.className)}>
+        <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
+          [HEADER]
         </div>
+        <h1 className="text-4xl font-bold tracking-wider">Let&apos;s Connect</h1>
+        <h2 className={cn("text-xl font-bold text-foreground", doto.className)}>DROP ME A LINE</h2>
+      </div>
 
-        {/* Introduction */}
-        <div className="space-y-4 relative">
-          <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
-            [INTRO]
-          </div>
-          <p className="text-sm leading-relaxed">
-            Got an interesting project in mind? Want to collaborate on something cool? Or just want to chat about code,
-            drones, or the latest tech trends? I&apos;d love to hear from you.
-          </p>
+      {/* Introduction */}
+      <div className="relative space-y-4">
+        <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
+          [INTRO]
         </div>
+        <p className="text-sm leading-relaxed">
+          Got an interesting project in mind? Want to collaborate on something cool? Or just want to
+          chat about code, drones, or the latest tech trends? I&apos;d love to hear from you.
+        </p>
+      </div>
 
-        <Separator className="my-8" />
+      <Separator className="my-8" />
 
-        {/* Quick Contact Options */}
-        <div className="space-y-6 relative">
-          <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
-            [QUICK]
-          </div>
-          <h3 className="text-lg font-semibold">Quick Contact</h3>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {/* Email Card */}
-            <div className="p-4 border rounded-lg space-y-3 hover:bg-muted/50 transition-colors">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-500" />
-                <span className="font-medium text-sm">Email</span>
-              </div>
-              <div className="space-y-2">
-                <p className="text-xl text-muted-foreground text-center font-mono">contact@itzik.co</p>
-                <Button variant="outline" size={"sm"}  onClick={handleCopyEmail} className="w-full text-xs py-2 bg-transparent">
-                  {copied ? (
-                    <>
-                      <CheckCircle className="w-3 h-3" />
-                      Copied!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3" />
-                      Copy Email
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
-
-            {/* Response Time Card */}
-            <div className="p-4 border rounded-lg space-y-3">
-              <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-green-500" />
-                <span className="font-medium text-sm">Response Time</span>
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs text-muted-foreground">Usually within 48 hours</p>
-                <p className="text-xs text-muted-foreground">Faster for interesting projects 🚀</p>
-              </div>
-            </div>
-          </div>
+      {/* Quick Contact Options */}
+      <div className="relative space-y-6">
+        <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
+          [QUICK]
         </div>
+        <h3 className="text-lg font-semibold">Quick Contact</h3>
 
-        <Separator className="my-8" />
-
-        {/* Contact Form */}
-        <div className="space-y-6 relative">
-          <div className="absolute -left-16 top-0 text-xs text-muted-foreground/40 font-mono hidden lg:block">
-            [FORM]
-          </div>
-          <h3 className="text-lg font-semibold">Send a Message</h3>
-
-          <form onSubmit={handleSubmit} name={"contact"} className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="your.email@example.com"
-                  required
-                />
-              </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {/* Email Card */}
+          <div className="space-y-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-blue-500" />
+              <span className="text-sm font-medium">Email</span>
             </div>
-
             <div className="space-y-2">
-              <label htmlFor="subject" className="text-sm font-medium">
-                Subject
+              <p className="text-center font-mono text-xl text-muted-foreground">
+                contact@itzik.co
+              </p>
+              <Button
+                variant="outline"
+                size={"sm"}
+                onClick={handleCopyEmail}
+                className="w-full bg-transparent py-2 text-xs"
+              >
+                {copied ? (
+                  <>
+                    <CheckCircle className="h-3 w-3" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-3 w-3" />
+                    Copy Email
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+
+          {/* Response Time Card */}
+          <div className="space-y-3 rounded-lg border p-4">
+            <div className="flex items-center gap-2">
+              <MessageCircle className="h-4 w-4 text-green-500" />
+              <span className="text-sm font-medium">Response Time</span>
+            </div>
+            <div className="space-y-1">
+              <p className="text-xs text-muted-foreground">Usually within 48 hours</p>
+              <p className="text-xs text-muted-foreground">Faster for interesting projects 🚀</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Separator className="my-8" />
+
+      {/* Contact Form */}
+      <div className="relative space-y-6">
+        <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
+          [FORM]
+        </div>
+        <h3 className="text-lg font-semibold">Send a Message</h3>
+
+        <form onSubmit={handleSubmit} name={"contact"} className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">
+                Name
               </label>
               <Input
-                id="subject"
-                name="subject"
-                value={formData.subject}
+                id="name"
+                name="name"
+                value={formData.name}
                 onChange={handleInputChange}
-                placeholder="What&apos;s this about?"
+                placeholder="Your name"
                 required
               />
             </div>
-
-            <div className="space-y-4 pb-4">
-              <label htmlFor="message" className="text-sm font-medium">
-                Message
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium">
+                Email
               </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Tell me about your project, idea, or just say hello..."
-                rows={6}
+                placeholder="your.email@example.com"
                 required
               />
             </div>
+          </div>
 
-            <Button type="submit" variant="purple" className="w-full py-4 mt-4">
-              <Send className="w-4 h-4" />
-              Send Message
-            </Button>
-          </form>
+          <div className="space-y-2">
+            <label htmlFor="subject" className="text-sm font-medium">
+              Subject
+            </label>
+            <Input
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              placeholder="What's this about?"
+              required
+            />
+          </div>
 
+          <div className="space-y-4 pb-4">
+            <label htmlFor="message" className="text-sm font-medium">
+              Message
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Tell me about your project, idea, or just say hello..."
+              rows={6}
+              required
+            />
+          </div>
 
-        </div>
+          <Button type="submit" variant="purple" className="mt-4 w-full py-4">
+            <Send className="h-4 w-4" />
+            Send Message
+          </Button>
+        </form>
+      </div>
     </>
   )
 }

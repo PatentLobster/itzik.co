@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const { withSentryConfig } = require("@sentry/nextjs");
+const { withSentryConfig } = require("@sentry/nextjs")
 
 const nextConfig = {
   async redirects() {
@@ -10,25 +10,30 @@ const nextConfig = {
       //   // destination: "/#contact",
       //   // permanent: true,
       // },
-    ];
+    ]
   },
   experimental: {
     optimizeCss: true,
     globalNotFound: true,
-    optimizePackageImports: ['framer-motion', 'lucide-react', '@react-three/fiber', '@react-three/drei'],
+    optimizePackageImports: [
+      "framer-motion",
+      "lucide-react",
+      "@react-three/fiber",
+      "@react-three/drei",
+    ],
   },
   sentry: {
     hideSourceMaps: true,
   },
-   
+
   // Compiler optimizations
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
 
   // Image optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 31536000,
     unoptimized: true,
   },
@@ -38,22 +43,22 @@ const nextConfig = {
     // Optimize bundle size
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
-        chunks: 'all',
+        chunks: "all",
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+            name: "vendors",
+            chunks: "all",
           },
           framerMotion: {
             test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-            name: 'framer-motion',
-            chunks: 'all',
+            name: "framer-motion",
+            chunks: "all",
           },
           threeJs: {
             test: /[\\/]node_modules[\\/](@react-three|three)[\\/]/,
-            name: 'three-js',
-            chunks: 'all',
+            name: "three-js",
+            chunks: "all",
           },
         },
       }
@@ -61,10 +66,10 @@ const nextConfig = {
 
     return config
   },
-};
+}
 
 const sentryWebpackPluginOptions = {
   silent: true,
-};
+}
 
-module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions)
