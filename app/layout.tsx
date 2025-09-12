@@ -65,20 +65,21 @@ export default function RootLayout({
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-
+          
             <div className={cn("flex flex-col", figtree.className)}>
-
+            
               <div className={"w-full sm:px-8 md:px-0"}>
               <main className={cn("block  mt-16")}>
-                <div className="max-w-2xl mx-auto space-y-8">
+                <div className="max-w-2xl mx-auto min-h-screen space-y-8">
                   {children}
                   <SiteFooter />
                 </div>
               </main>
-              </div>
               
               <Navbar />
 
+              </div>
+              
             </div>
 
             <TailwindIndicator />
