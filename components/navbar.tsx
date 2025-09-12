@@ -10,8 +10,17 @@ import {Icons} from "@/components/icons"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { Dock, DockIcon } from "@/components/dock"
-import GlitchName from "./glitch-name"
+// import GlitchName from "./glitch-name"
+import dynamic from "next/dynamic"
 
+
+const GlitchName = dynamic(
+  () => import("@/components/glitch-name").then((mod) => ({ default: mod.GlitchName })),
+  {
+    ssr: false, // Don't render on server
+    loading: () => <Logo className="text-3xl px-2" />, // No loading state needed
+  },
+)
 
 const navbar = [
   { href: "/", icon: Icons.home, activeIcon: Icons.homeActive, class: "", label: "Home" },
