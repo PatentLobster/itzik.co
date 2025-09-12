@@ -1,6 +1,6 @@
 "use client"
 
-import { m } from "framer-motion"
+import { m, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Server } from "lucide-react"
 
@@ -23,16 +23,17 @@ export function DevOpsViz() {
         <span className="font-mono text-sm">CI/CD Pipeline</span>
       </div>
 
-      <div className="relative flex justify-between items-center h-20 mb-4">
+      <div className="relative flex justify-between items-center h-20 mb-4  z-50">
         {/* Progress line background */}
-        <div className="absolute top-6 left-6 right-6 h-0.5 bg-muted-foreground/20 rounded-full" />
+        <div className="absolute top-6 left-6 right-6 h-0.5 bg-muted-foreground/20 rounded-full " />
 
         {/* Animated progress line */}
-        <m.div
+        <motion.div
           className="absolute top-[1.65rem] left-6 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"
           animate={{
-            width: activeStage === 0 ? "0%" : `calc((100% - 3rem) * ${activeStage / (stages.length - 1)})`,
+            width: `calc((100% - 3rem) * ${activeStage / (stages.length - 1)})`,
           }}
+          initial={{width: "0%"}}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         />
 
