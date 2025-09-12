@@ -44,7 +44,7 @@ export default function Contact() {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "ada7cb4b-97e1-4341-81db-62bd1cf2000b");
+    formData.append("access_key",  process.env.NEXT_PUBLIC_WEB3_FORMS_KEY ?? "");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
