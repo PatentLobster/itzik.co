@@ -18,7 +18,7 @@ const GlitchName = dynamic(
   () => import("@/components/glitch-name").then((mod) => ({ default: mod.GlitchName })),
   {
     ssr: false, // Don't render on server
-    loading: () => <Logo className="text-3xl px-2" />, // No loading state needed
+    loading: () => <Logo className="text-3xl px-2" />, 
   },
 )
 
