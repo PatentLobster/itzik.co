@@ -1,5 +1,7 @@
+import { fontFamily } from "tailwindcss/defaultTheme"
+
 const svgToDataUri = require("mini-svg-data-uri")
-import { fontFamily } from 'tailwindcss/defaultTheme';
+
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette")
 
 /** @type {import('tailwindcss').Config} */

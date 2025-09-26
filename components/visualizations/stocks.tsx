@@ -437,7 +437,7 @@ export function StockTradingViz() {
   }, [trend, volume, priceChange, momentum, volatility])
 
   return (
-    <div className="relative h-52 overflow-hidden rounded-t-lg bg-gradient-to-br from-green-500/10 to-blue-500/10 p-4">
+    <div className="relative h-48 overflow-hidden rounded-t-lg bg-gradient-to-br from-green-500/10 to-blue-500/10 p-4">
       <div className="absolute left-4 top-4 flex items-center gap-2">
         <TrendingUp className="h-5 w-5 text-green-500" />
         <span className="font-mono text-sm">ALGO-TRADE</span>

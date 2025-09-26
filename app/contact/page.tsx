@@ -6,12 +6,23 @@ import { useState } from "react"
 import { Doto, Figtree } from "next/font/google"
 import Link from "next/link"
 
-import { ArrowLeft, CheckCircle, Copy, Mail, MessageCircle, Send } from "lucide-react"
+import {
+  ArrowLeft,
+  CheckCircle,
+  Copy,
+  Instagram,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Send,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Icons } from "@/components/ui/icons"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
+import { siteConfig } from "@/config/site"
 import { useConfetti } from "@/hooks/use-confetti"
 import { cn } from "@/lib/utils"
 
@@ -94,8 +105,6 @@ export default function Contact() {
         <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
           [QUICK]
         </div>
-        <h3 className="text-lg font-semibold">Quick Contact</h3>
-
         <div className="grid gap-4 sm:grid-cols-2">
           {/* Email Card */}
           <div className="space-y-3 rounded-lg border p-4 transition-colors hover:bg-muted/50">
@@ -128,15 +137,39 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Response Time Card */}
           <div className="space-y-3 rounded-lg border p-4">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-4 w-4 text-green-500" />
-              <span className="text-sm font-medium">Response Time</span>
+              <span className="text-sm font-medium">DM</span>
             </div>
-            <div className="space-y-1">
-              <p className="text-xs text-muted-foreground">Usually within 48 hours</p>
-              <p className="text-xs text-muted-foreground">Faster for interesting projects 🚀</p>
+            <div className="grid grid-cols-3 gap-3 py-2">
+              <Button
+                variant="inversedblue"
+                size="sm"
+                className="text-xs"
+                href={siteConfig.links.linkedin}
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-3 w-3" />
+              </Button>
+              <Button
+                variant="purple"
+                size="sm"
+                className="text-xs"
+                href={siteConfig.links.discord}
+                aria-label="Discord"
+              >
+                <Icons.discord className="h-3 w-3" />
+              </Button>
+              <Button
+                variant="rose"
+                size="sm"
+                className="text-xs"
+                href={siteConfig.links.instagram}
+                aria-label="Instagram"
+              >
+                <Instagram className="h-3 w-3" />
+              </Button>
             </div>
           </div>
         </div>
@@ -149,7 +182,6 @@ export default function Contact() {
         <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
           [FORM]
         </div>
-        <h3 className="text-lg font-semibold">Send a Message</h3>
 
         <form onSubmit={handleSubmit} name={"contact"} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">

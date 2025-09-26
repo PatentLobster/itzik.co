@@ -16,7 +16,12 @@ import { cn } from "@/lib/utils"
 
 import "./globals.css"
 
-const figtree = Figtree({ subsets: ["latin"], display: "swap", weight: ["300"], variable: "--font-figtree" })
+const figtree = Figtree({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300"],
+  variable: "--font-figtree",
+})
 
 export const metadata: Metadata = {
   title: "Itzik",
@@ -105,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className={cn("flex flex-col", figtree.className)}>
-              <div className={"w-full sm:px-8 md:px-0"}>
+              <div className={"w-full px-8 md:px-0"}>
                 <main className={cn("mt-16 block")}>
                   <div className="mx-auto min-h-screen max-w-2xl space-y-8">
                     {children}

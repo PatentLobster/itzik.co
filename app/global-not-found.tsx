@@ -18,7 +18,12 @@ import { cn } from "@/lib/utils"
 import "./globals.css"
 
 const doto = Doto({ subsets: ["latin"], display: "swap", weight: ["700"] })
-const figtree = Figtree({ subsets: ["latin"], display: "swap", weight: ["300"], variable: "--font-figtree" })
+const figtree = Figtree({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300"],
+  variable: "--font-figtree",
+})
 
 export const metadata: Metadata = {
   title: "Not Found",

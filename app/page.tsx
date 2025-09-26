@@ -165,7 +165,7 @@ export default function Home() {
 
       <div className="relative space-y-6">
         <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
-          [work]
+          [WORK]
         </div>
         <Timeline />
       </div>
@@ -174,7 +174,7 @@ export default function Home() {
 
       <div className="relative space-y-6">
         <div className="absolute -left-16 top-0 hidden font-mono text-xs text-muted-foreground/40 lg:block">
-          [skills]
+          [SKILLS]
         </div>
         <Skills />
       </div>

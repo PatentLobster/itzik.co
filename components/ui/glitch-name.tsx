@@ -9,7 +9,13 @@ import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 // const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"] })
-const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"], variable: "--font-playpen", adjustFontFallback: false})
+const playpen = Playpen_Sans_Hebrew({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400"],
+  variable: "--font-playpen",
+  adjustFontFallback: false,
+})
 const gochi = Gochi_Hand({ subsets: ["latin"], display: "swap", weight: ["400"] })
 
 interface GlitchNameProps {
