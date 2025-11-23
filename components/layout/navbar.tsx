@@ -21,14 +21,14 @@ const GlitchName = dynamic(
 )
 
 const navbar = [
-  { href: "/", icon: Icons.home, activeIcon: Icons.homeActive, class: "", label: "Home" },
+  { href: "/", icon: Icons.home, activeIcon: Icons.homeActive, class: "h-16 w-16", label: "Home" },
   // { href: "#", icon: Feather, label: "Skills" },
   // { href: "#", icon: Gem, label: "Uses" },
   {
     href: "/contact",
     icon: Icons.contact,
     activeIcon: Icons.contactActive,
-    class: "size-3 mt-0 h-4 w-4 p-0 m-0",
+    class: "size-3 mt-0 h-8 w-8 p-0 m-0",
     label: "Contact",
   },
 ]
@@ -40,11 +40,11 @@ export function Navbar() {
     <Dock
       disableMagnification
       direction="middle"
-      className="dark:border-slate-50/6 sticky bottom-8 z-50 border-slate-500/50 backdrop-blur transition-colors supports-backdrop-blur:bg-black/5 dark:text-white dark:supports-backdrop-blur:bg-white/5"
+      className="dark:border-slate-50/6 fixed bottom-0 left-0 right-0 z-50 border-slate-500/50 backdrop-blur transition-colors supports-backdrop-blur:bg-black/5 dark:text-white dark:supports-backdrop-blur:bg-white/5 md:sticky md:bottom-8 md:left-auto md:right-auto"
     >
       <GlitchName
         englishText="Itzik"
-        hebrewText="קיזיק"
+        hebrewText="קיציא"
         changeIndices={[0, 1, 3]} // I, t, i positions
         mode="both"
         fontSize="text-3xl px-2"
@@ -60,7 +60,7 @@ export function Navbar() {
               href={item.href}
               aria-label={item.label}
               className={cn(
-                "mx-auto flex h-16 w-16 flex-col justify-center gap-0.5 px-1 py-2 text-center"
+                "mx-auto flex h-24 w-24 flex-col justify-center gap-0.5 px-8 py-4 text-center"
               )}
             >
               {isActive ? (

@@ -1,14 +1,11 @@
+
 "use client"
 
-import { useState } from "react"
-
+import { useState, useEffect } from "react"
 import { Gochi_Hand, Playpen_Sans_Hebrew } from "next/font/google"
-
 import { AnimatePresence, motion } from "framer-motion"
-
 import { cn } from "@/lib/utils"
 
-// const playpen = Playpen_Sans_Hebrew({ subsets: ["latin"], display: "swap", weight: ["400"] })
 const playpen = Playpen_Sans_Hebrew({
   subsets: ["latin"],
   display: "swap",
@@ -19,22 +16,16 @@ const playpen = Playpen_Sans_Hebrew({
 const gochi = Gochi_Hand({ subsets: ["latin"], display: "swap", weight: ["400"] })
 
 interface GlitchNameProps {
-  /** The English text to display */
   englishText: string
-  /** The Hebrew text to display (should match the length of englishText) */
   hebrewText: string
-  /** Array of indices indicating which letters should change to Hebrew */
   changeIndices: number[]
-  /** Interaction mode: 'hover', 'click', or 'both' */
   mode?: "hover" | "click" | "both"
-  /** CSS class for styling */
   className?: string
-  /** Font size (Tailwind class) */
   fontSize?: string
-  /** English font family */
   englishFont?: string
-  /** Hebrew font family */
   hebrewFont?: string
+  /** Custom delay (ms) for repeat animation */
+  repeatDelay?: number
 }
 
 export default function GlitchName({
@@ -46,21 +37,30 @@ export default function GlitchName({
   fontSize = "text-8xl",
   englishFont = "Gochi Hand",
   hebrewFont = "Playpen Sans Hebrew",
+  repeatDelay = 2000,
 }: GlitchNameProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
+  const [autoToggle, setAutoToggle] = useState(false)
 
-  // Determine if Hebrew should be shown based on mode
+  // Automatically toggle effect on a loop
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAutoToggle(prev => !prev)
+    }, repeatDelay)
+    return () => clearInterval(interval)
+  }, [repeatDelay])
+
   const showHebrew = () => {
     switch (mode) {
       case "hover":
-        return isHovered
+        return isHovered || autoToggle
       case "click":
-        return isClicked
+        return isClicked || autoToggle
       case "both":
-        return isHovered || isClicked
+        return isHovered || isClicked || autoToggle
       default:
-        return false
+        return autoToggle
     }
   }
 

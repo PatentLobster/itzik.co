@@ -111,8 +111,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className={cn("flex flex-col", figtree.className)}>
               <div className={"w-full px-8 md:px-0"}>
-                <main className={cn("mt-16 block")}>
-                  <div className="mx-auto min-h-screen max-w-2xl space-y-8">
+                <main className={cn("mt-16 block pb-20 md:pb-0")}>
+                  <div className="mx-auto min-h-screen max-w-2xl space-y-8 pb-safe md:pb-0">
                     {children}
                     <SiteFooter />
                   </div>
