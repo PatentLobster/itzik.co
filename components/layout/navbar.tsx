@@ -6,11 +6,12 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { Dock, DockIcon } from "@/components/ui/dock"
-import { Icons } from "@/components/ui/icons"
 import Logo from "@/components/ui/logo"
 import { Separator } from "@/components/ui/separator"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { cn } from "@/lib/utils"
+import HomeIcon from "@/components/ui/icons/home-icon"
+import MessageCircleIcon from "@/components/ui/icons/message-circle-icon"
 
 const GlitchName = dynamic(
   () => import("@/components/ui/glitch-name").then((mod) => ({ default: mod.default })),
@@ -21,14 +22,20 @@ const GlitchName = dynamic(
 )
 
 const navbar = [
-  { href: "/", icon: Icons.home, activeIcon: Icons.homeActive, class: "h-16 w-16", label: "Home" },
+  {
+    href: "/",
+    icon: HomeIcon,
+    activeIcon: HomeIcon,
+    class: "",
+    label: "Home"
+  },
   // { href: "#", icon: Feather, label: "Skills" },
   // { href: "#", icon: Gem, label: "Uses" },
   {
     href: "/contact",
-    icon: Icons.contact,
-    activeIcon: Icons.contactActive,
-    class: "size-3 mt-0 h-8 w-8 p-0 m-0",
+    icon: MessageCircleIcon,
+    activeIcon: MessageCircleIcon,
+    class: "",
     label: "Contact",
   },
 ]
@@ -39,6 +46,7 @@ export function Navbar() {
   return (
     <Dock
       disableMagnification
+      iconSize={72}
       direction="middle"
       className="dark:border-slate-50/6 fixed bottom-0 left-0 right-0 z-50 border-slate-500/50 backdrop-blur transition-colors supports-backdrop-blur:bg-black/5 dark:text-white dark:supports-backdrop-blur:bg-white/5 md:sticky md:bottom-8 md:left-auto md:right-auto"
     >
@@ -55,27 +63,25 @@ export function Navbar() {
         const isActive = pathname === item.href
 
         return (
-          <DockIcon key={item.label} disableMagnification>
+          <DockIcon key={item.label} disableMagnification size={72}>
             <Link
               href={item.href}
               aria-label={item.label}
-              className={cn(
-                "mx-auto flex h-24 w-24 flex-col justify-center gap-0.5 px-8 py-4 text-center"
-              )}
+              className="h-[64px]"
             >
-              {isActive ? (
-                <item.activeIcon className={cn("mx-auto", item.class)} strokeWidth={0.8} />
-              ) : (
-                <item.icon className={cn("mx-auto", item.class)} strokeWidth={0.8} />
-              )}
-              <span
-                className={cn(
-                  "mx-auto p-0.5 text-center text-xxs font-medium",
-                  isActive && "font-bold"
-                )}
-              >
-                {item.label}
-              </span>
+              <div className={cn(
+                "mx-auto flex h-[64px] flex-col justify-center text-center"
+              )}>
+                  <item.icon className={cn("mx-auto", item.class)} size={28} strokeWidth={isActive ? 1.8 : 1} />
+                <span
+                  className={cn(
+                    "p-0.5 text-center text-xxs font-medium",
+                    isActive && "font-bold"
+                  )}
+                >
+                  {item.label}
+                </span>
+              </div>
             </Link>
           </DockIcon>
         )

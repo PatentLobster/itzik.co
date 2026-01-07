@@ -98,7 +98,7 @@ export default function GlitchName({
       `}</style>
 
       <motion.div
-        className={`${fontSize} cursor-pointer select-none font-bold ${className}`}
+        className={`${fontSize} select-none font-bold ${className}`}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

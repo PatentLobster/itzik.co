@@ -6,9 +6,9 @@ import { m } from "framer-motion"
 import { Book, Brain, Database, Globe, Terminal } from "lucide-react"
 
 const dataSources = [
-  { name: "StackOverflow", icon: Globe, color: "text-blue-500" },
-  { name: "Google", icon: Database, color: "text-green-500" },
-  { name: "man", icon: Terminal, color: "text-purple-500" },
+  { name: "", icon: Globe, color: "text-blue-500" },
+  { name: "", icon: Database, color: "text-green-500" },
+  { name: "", icon: Terminal, color: "text-purple-500" },
 ]
 
 export function LearningViz() {
@@ -106,8 +106,8 @@ export function LearningViz() {
           return (
             <div
               key={source.name}
-              className="absolute right-8 z-10 flex items-center gap-2 md:hidden"
-              style={{ top: 50 + index * 30 }}
+              className="absolute right-24 z-10 flex items-center gap-2 md:hidden"
+              style={{ top: 60 + index * 30 }}
             >
               <Icon className={`h-5 w-5 ${source.color}`} />
               <span className="font-mono text-xs text-muted-foreground">{source.name}</span>

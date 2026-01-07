@@ -129,7 +129,7 @@ export const Icons = {
     </svg>
   ),
   homeActive: (props: LucideProps) => (
-    <svg viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 960 980" xmlns="http://www.w3.org/2000/svg">
       <g>
         <g>
           <g>
@@ -246,21 +246,21 @@ export const Icons = {
     </svg>
   ),
   home: (props: LucideProps) => (
-    <svg viewBox="0 0 960 960" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 960 980" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <g id="outline">
         <path d="m510 180h-60v-30h60zm-60 0h-30v30h30zm90 30v-30h-30v30zm-120 0h-30v60h30zm0 60v30h30v-30zm30 60h60v-30h-60zm60-30h30v-30h-30zm60-30v-60h-30v60zm-60-210h-60v30h60zm-60 30h-60v30h60zm-60 30h-60v30h60zm-60 30h-60v30h60zm-60 30h-60v30h60zm-60 30h-60v30h60zm360-90v-30h-60v30zm60 30v-30h-60v30zm60 30v-30h-60v30zm60 30v-30h-60v30zm60 30v-30h-60v30zm-510 150v30h30v-30h60v30h30v-30h120v30h30v-30h60v30h30v-30h120v30h30v-30h30v-150h-30v120h-660v-120h-30v150h30v30h30v-30zm360 30h120v30 180 30h-120v-30-180zm30 210h60v-180h-60zm-390 30h-120v-30-180-30h120v30 180zm-30-210h-60v180h60zm270 180v30h-120v-30-180-30h120v30zm-30-180h-60v180h60zm329 300h-29v-90h-30v90h-120v-90h-30v90h-60v-90h-30v90h-120v-90h-30v90h-60v-90h-30v90h-120v-90h-30v90h-30v30h719zm61 60h-30v-30h-30v30h-720v-30h-30v30h-30v30h840zm0 60h-840v-30h-30v30 30h900v-30-30h-30z"></path>
       </g>
     </svg>
   ),
   contact: (props: LucideProps) => (
-    <svg viewBox="0 0 960 960" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <svg viewBox="0 0 960 890" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
       <g id="outline">
         <path d="m450 210h-240v-30h540v30h-270v150h-30zm60 180v-30h-30v30zm-30 90v30h30v-30zm150-90v-30h-30v30zm-30 120h30v-30h-30zm60-30v-90h-30v90zm-60-150h-90v30h90zm-90 210h90v-30h-90zm-30 120v-150h-30v150h-90v30h240v-30zm-450-300v150h30v-150zm180-150h-60v30h60zm-90 60h-30v30h30zm30-30h-30v30h30zm-60 60h-30v60h30zm60 330v30h60v-30zm-60-60v30h30v-30zm30 30v30h30v-30zm-60-90v60h30v-60zm840-150v150h30v-150zm-90-120v-30h-60v30zm60 60v-30h-30v30zm-30-30v-30h-30v30zm60 90v-60h-30v60zm-150 300h60v-30h-60zm90-60h30v-30h-30zm-30 30h30v-30h-30zm60-60h30v-60h-30zm-630 90h-30v60h30zm-30 60h-30v30h30zm-30 30h-30v30h-30v30h120v-30h-60zm150-30h30v-30h-30zm-30 30h30v-30h-30zm-60 30h60v-30h-60zm480-60h30v-60h-30zm60 30v-30h-30v30zm-180-60v30h30v-30zm30 30v30h30v-30zm30 30v30h60v-30zm60 30v30h120v-30h-30v-30h-30v30z"></path>
       </g>
     </svg>
   ),
   contactActive: (props: LucideProps) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 865">
       <g>
         <g>
           <g>

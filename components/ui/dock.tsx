@@ -19,12 +19,12 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 }
 
 const DEFAULT_SIZE = 40
-const DEFAULT_MAGNIFICATION = 60
-const DEFAULT_DISTANCE = 140
-const DEFAULT_DISABLEMAGNIFICATION = false
+const DEFAULT_MAGNIFICATION = 0
+const DEFAULT_DISTANCE = 200
+const DEFAULT_DISABLEMAGNIFICATION = true
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-0 md:mt-8 flex h-16 md:h-[58px] w-full md:w-max items-center justify-center gap-2 rounded-none md:rounded-2xl border-t md:border border-l-0 border-r-0 md:border-l md:border-r p-2 pb-safe md:pb-2 backdrop-blur-md"
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-0 md:mt-8 flex h-16 md:h-[58px] w-full md:w-max items-center justify-center gap-2 rounded-none md:rounded-2xl border-t md:border border-l-0 border-r-0 md:border-l md:border-r p-2 pb-4 pt-4 md:pb-3 sm:pb-5 pb-safe  backdrop-blur-md"
 )
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
@@ -129,8 +129,7 @@ const DockIcon = ({
       ref={ref}
       style={{ width: scaleSize, height: scaleSize, padding }}
       className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        // disableMagnification && "transition-colors hover:bg-muted-foreground",
+        "flex aspect-square cursor-pointer items-center justify-center rounded-full transition-colors",
         className
       )}
       {...props}
