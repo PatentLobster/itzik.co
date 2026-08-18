@@ -9,9 +9,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { SiteFooter } from "@/components/layout/footer"
 import FrontendObservability from "@/components/layout/frontend-observability"
-import { Navbar } from "@/components/layout/navbar"
 import { TailwindIndicator } from "@/components/layout/tailwind-indicator"
 import { ThemeProvider } from "@/components/layout/theme-provider"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
@@ -110,15 +110,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className={cn("flex flex-col", figtree.className)}>
+              <div className="fixed right-4 top-4 z-50 md:right-6 md:top-6">
+                <ThemeToggle className="text-muted-foreground transition-colors hover:text-foreground" />
+              </div>
               <div className={"w-full px-8 md:px-0"}>
-                <main className={cn("mt-16 block pb-20 md:pb-0")}>
-                  <div className="mx-auto min-h-screen max-w-2xl space-y-8 pb-safe md:pb-0">
+                <main className={cn("mt-16 block")}>
+                  <div className="mx-auto min-h-screen max-w-2xl space-y-8 pb-safe">
                     {children}
                     <SiteFooter />
                   </div>
                 </main>
-
-                <Navbar />
               </div>
             </div>
 

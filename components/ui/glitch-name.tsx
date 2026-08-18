@@ -109,9 +109,15 @@ export default function GlitchName({
             const hebrewLetter = hebrewText[index] || letter
             const isWide = ["t"].includes(letter)
 
+            // Stagger by the letter's order within the changing set so the
+            // cascade is evenly spaced regardless of gaps in changeIndices.
+            const changeOrder = changeIndices.indexOf(index)
+            const stagger = (changeOrder < 0 ? 0 : changeOrder) * 0.07
+            const transition = { duration: 0.3, delay: stagger, ease: "easeInOut" as const }
+
             return (
               <div key={index} className={`letter-container ${isWide ? "mr-0.5" : ""}`}>
-                <AnimatePresence mode="wait">
+                <AnimatePresence initial={false}>
                   {!shouldChange || !showHebrew() ? (
                     <motion.span
                       key={`${letter}-en-${index}`}
@@ -119,9 +125,10 @@ export default function GlitchName({
                         "gochi absolute inset-0 flex items-center justify-center",
                         gochi.className
                       )}
-                      initial={{ opacity: 1 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2, delay: index * 0.05 }}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      transition={transition}
                     >
                       {letter}
                     </motion.span>
@@ -132,10 +139,10 @@ export default function GlitchName({
                         "playpen absolute inset-0 flex items-center justify-center",
                         playpen.className
                       )}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2, delay: index * 0.05 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      transition={transition}
                     >
                       {hebrewLetter}
                     </motion.span>
