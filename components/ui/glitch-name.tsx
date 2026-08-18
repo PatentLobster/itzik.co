@@ -43,13 +43,16 @@ export default function GlitchName({
   const [isClicked, setIsClicked] = useState(false)
   const [autoToggle, setAutoToggle] = useState(false)
 
-  // Automatically toggle effect on a loop
+  // Ambient loop toggles the effect, but pauses while the user is
+  // interacting so intent (hover/click) always wins instead of fighting it.
+  const interacting = isHovered || isClicked
   useEffect(() => {
+    if (interacting) return
     const interval = setInterval(() => {
       setAutoToggle(prev => !prev)
     }, repeatDelay)
     return () => clearInterval(interval)
-  }, [repeatDelay])
+  }, [repeatDelay, interacting])
 
   const showHebrew = () => {
     switch (mode) {
@@ -89,6 +92,7 @@ export default function GlitchName({
           position: relative;
           display: inline-block;
           width: 0.6ch;
+          line-height: 1.1;
           text-align: center;
         }
 
@@ -113,10 +117,22 @@ export default function GlitchName({
             // cascade is evenly spaced regardless of gaps in changeIndices.
             const changeOrder = changeIndices.indexOf(index)
             const stagger = (changeOrder < 0 ? 0 : changeOrder) * 0.07
-            const transition = { duration: 0.3, delay: stagger, ease: "easeInOut" as const }
+            const transition = { duration: 0.45, delay: stagger, ease: [0.22, 1, 0.36, 1] as const }
+            // In-place blur + scale so glyphs morph/dissolve into each other
+            // rather than sliding and fading.
+            const morph = {
+              initial: { opacity: 0, scale: 0.7, filter: "blur(6px)" },
+              animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
+              exit: { opacity: 0, scale: 1.25, filter: "blur(6px)" },
+            }
 
             return (
               <div key={index} className={`letter-container ${isWide ? "mr-0.5" : ""}`}>
+                {/* Invisible in-flow glyph reserves height/width so the
+                    absolutely-positioned animated spans don't collapse. */}
+                <span aria-hidden className={cn("invisible", gochi.className)}>
+                  {letter}
+                </span>
                 <AnimatePresence initial={false}>
                   {!shouldChange || !showHebrew() ? (
                     <motion.span
@@ -125,9 +141,9 @@ export default function GlitchName({
                         "gochi absolute inset-0 flex items-center justify-center",
                         gochi.className
                       )}
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -12 }}
+                      initial={morph.initial}
+                      animate={morph.animate}
+                      exit={morph.exit}
                       transition={transition}
                     >
                       {letter}
@@ -139,9 +155,9 @@ export default function GlitchName({
                         "playpen absolute inset-0 flex items-center justify-center",
                         playpen.className
                       )}
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -12 }}
+                      initial={morph.initial}
+                      animate={morph.animate}
+                      exit={morph.exit}
                       transition={transition}
                     >
                       {hebrewLetter}
