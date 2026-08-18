@@ -9,9 +9,6 @@ export function SiteFooter() {
   return (
     <footer>
       <div className="relative space-y-2 py-8">
-        <div className="absolute -left-16 top-8 hidden font-mono text-xs text-muted-foreground/40 lg:block">
-          [FOOTER]
-        </div>
         <Separator />
         <div className="text-center">
           <p className="text-xs text-muted-foreground">
